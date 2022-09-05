@@ -1,0 +1,15 @@
+
+public class TestaPontoFlutuante {
+	
+	public static void main(String[] args) {
+		
+		double salario = 1250.70;	
+		System.out.println("Meu salario é " + salario);
+		
+		double divisao = 5.0 / 2; //um dos dois operadores tem que ser ddouble
+		System.out.println(divisao);
+		
+		int outraDivisao = 5 / 2; //divisão de inteiro = resultado inteiro
+		System.out.println(outraDivisao);
+	}
+}

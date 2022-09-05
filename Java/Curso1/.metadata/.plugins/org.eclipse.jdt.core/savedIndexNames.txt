@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\wamp64\www\git\alura\Java\Curso1\.metadata\.plugins\org.eclipse.jdt.core
+1374762053.index
+1693911205.index
+3011209426.index
+1865797976.index
