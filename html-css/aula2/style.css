@@ -29,6 +29,7 @@ header {
     font-size: 1.5em;
     margin: 0 0 1em;
     clear: left;
+    text-shadow: 2px 2px #FEFEFE;
 }
 
 .titulo-principal::first-letter {
@@ -93,6 +94,13 @@ header {
 
 .imgbeneficios {
     width: 60%;
+    opacity: 0.5;
+    transition: 400ms;
+    box-shadow: 5px 10px 30px 10px #000000;
+}
+
+.imgbeneficios:hover {
+    opacity: 1;
 }
 
 .mapa {
@@ -268,4 +276,23 @@ thead {
 td, th {
     border: 1px solid #000000;
     padding: 8px 20px;
+}
+
+@media screen and (max-width: 480px){
+    .formatacao, .principal, .conteudo-beneficios, .mapa-conteudo, .video {
+        width: auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        position: static;
+    }
+
+    .lista-beneficios, .imgbeneficios {
+        width: 100%;
+    }
+
 }
