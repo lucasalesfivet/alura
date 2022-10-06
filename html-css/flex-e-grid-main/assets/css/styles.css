@@ -100,13 +100,17 @@ body {
 .principal {
     padding: 24px 16px;
     display: grid;
-    justify-content: center;
+    gap: 16px;
 }
 
 .titulo-pagina {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+}
+
+.titulo-secao {
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .cartao {
@@ -116,22 +120,25 @@ body {
     background-color: #2C343A;
 }
 
+.cartao--destaque {
+    margin-bottom: 16px;
+}
+
 .cartao__conteudo {
     padding: 16px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
 }
 
 .cartao__destaque {
     grid-column: span 2;
-    margin: 0px 0px 5px 0px;
 }
 
 .cartao__titulo {
     font-size: 1.2rem;
     font-weight: 700;
     grid-column: span 2;
-    margin: 0px 0px 5px 0px;
 }
 
 .cartao__perfil {
@@ -149,12 +156,10 @@ body {
 
 .cartao_info--tempo::before {
     content: "\e90c";
-    margin-right: 8px;
 }
 
 .cartao__info--visualizacao::before {
     content: "\e90f";
-    margin-right: 8px;
 }
 
 .cartao__botao {
@@ -166,7 +171,7 @@ body {
     height: 40px;
     border-radius: 10px;
     font-size: 0.9rem;
-    margin-top: 10px;
+    justify-self: flex-end;
 }
 
 .cartao__botao--play::before {
@@ -181,4 +186,9 @@ body {
 
 .cartao__botao--destaque::before {
     margin-right: 8px;
+}
+
+.secao {
+    display: grid;
+    gap: 16px;
 }
