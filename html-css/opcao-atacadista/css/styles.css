@@ -1,0 +1,14 @@
+body {
+    background: #ecf0f1;
+
+}
+
+.faixa {
+    height: 50px;
+    background: #e74c3c;
+}
+
+.menu {
+    height: 150px;
+    background: #34495e;
+}
