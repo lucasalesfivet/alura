@@ -68,21 +68,25 @@ body {
 }
 
 .secundario {
-
+    align-items: center;
+    margin: 0 10em;
 }
 
-.secundario__iamgem {
-
+.secundario__imagem {
+    width: 70%;
 }
 
 .container__descricao {
-
+    padding: 2em;
 }
 
 .descricao__titulo {
-
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--branco-principal);
+    margin-bottom: 0.1em;
 }
 
 .descricao__texto {
-    
+    color: var(--cinza-secundario);
 }
