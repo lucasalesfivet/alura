@@ -19,13 +19,11 @@
     display: inline-block;
 }
 
-.container__imagem {
-    padding: 1em;
-    height: 50px;
+.container__imagem-logo {
+
 }
 
-h3 {
-    font-size: 1.3em;
-    font-weight: 700;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.container__imagem {
+    padding: 1em;
+    height: 40px;
 }
