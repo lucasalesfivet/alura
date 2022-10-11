@@ -11,17 +11,16 @@ body {
 .cabecalho {
     background-color: var(--cor-do-topo);
     display: grid;
-    padding: 16px 60px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    column-gap: 32px;
+    grid-template-columns: 1fr auto;
+    padding: 16px 30px;
+    height: 70px;
+    box-sizing: border-box;
+    grid-column: 2;
 }
 
 /* esconde o botão do menu */
 .cabecalho__menu {
-    width: 35px;
-    height: 35px;
-    background-image: url("../img/Menu.svg");
-    background-repeat: no-repeat;
-    background-position: center;
     display: none;
 }
 
@@ -40,7 +39,6 @@ body {
     display: grid;
     align-items: center;
     justify-self: flex-end;
-    color: #95999C;
 }
 
 /* menu lateral sempre aberto */
@@ -93,15 +91,15 @@ body {
         display: flex;
         align-items: center;
         padding: 8px 16px;
-        column-gap: 32px;
         justify-content: space-between;
-        grid-template-columns: 1fr auto;
-        height: 70px;
-        box-sizing: border-box;
-        grid-column: 2;
     }
 
     .cabecalho__menu {
+        width: 35px;
+        height: 35px;
+        background-image: url("../img/Menu.svg");
+        background-repeat: no-repeat;
+        background-position: center;
         display: inline-block;
     }
 
