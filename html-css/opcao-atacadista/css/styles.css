@@ -1,47 +1,11 @@
+@import url("header.css");
+
 :root {
-    --branco-principal: #FFFFFF;
-    --cinza-secundario: #C0C0C0;
-    --fonte-principal: 'Inter';
+    --cor-de-fundo: #ebecee;
+    --cor-do-topo: #F6AA73;
+    --branco: #ffffff;
 }
 
 body {
-    background: #ecf0f1;
-    color: var(--branco-principal);
-    font-family: var(--fonte-principal);
-}
-
-.cabecalho {
-    display: grid;
-    box-sizing: border-box;
-}
-
-.faixa {
-    height: 4vh;
-    background: #e74c3c;
-    font-size: 0.9em;
-    text-align: right;
-}
-
-.faixa-paragrafo {
-    margin-right: 10vh;
-}
-
-.faixa-contato {
-    font-family: 'Montserrat', sans-serif;
-    display: inline-block;
-    color: var(--cinza-secundario);
-    padding: 6px;
-}
-
-.menu {
-    height: 15vh;
-    box-shadow: 1px 5px 5px #888888;
-    display: flex;
-}
-
-.imagem-logo {
-    display: flex;
-    align-items: center;
-    height: 15vh;
-    margin-left: 10vh;
+    background-color: var(--cor-de-fundo);
 }
