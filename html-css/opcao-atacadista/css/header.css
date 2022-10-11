@@ -21,7 +21,7 @@
 }
 
 .container__imagem-logo {
-
+    justify-content: center;
 }
 
 .container__imagem {
@@ -32,7 +32,8 @@
 .lista-menu {
     display: none;
     position: absolute;
-    top: 80%;
+    top: 100%;
+    width: 60vw;
 }
 
 .container__botao:checked~.lista-menu {
