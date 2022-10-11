@@ -18,22 +18,25 @@ body {
 .faixa {
     height: 4vh;
     background: #e74c3c;
-    text-align: right;
-    align-items: center;
-    padding-left: 10vh;
     font-size: 0.9em;
+    text-align: right;
+}
+
+.faixa-paragrafo {
+    margin-right: 10vh;
 }
 
 .faixa-contato {
+    font-family: 'Montserrat', sans-serif;
     display: inline-block;
-    justify-self: flex-end;
-    color: #ffffff;
-    margin-right: 10vh;
+    color: var(--cinza-secundario);
+    padding: 6px;
 }
 
 .menu {
     height: 15vh;
     box-shadow: 1px 5px 5px #888888;
+    display: flex;
 }
 
 .imagem-logo {
