@@ -3,53 +3,60 @@
     src: url(font/icones.ttf);
 }
 
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
 .cabecalho {
     background-color: var(--cor-do-topo);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
+    display: grid;
+    padding: 16px 60px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
 }
 
+/* esconde o botão do menu */
 .cabecalho__menu {
     width: 35px;
     height: 35px;
     background-image: url("../img/Menu.svg");
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
+    display: none;
 }
 
+/* esconde a logo do topo */
+.cabecalho__logo {
+    display: none;
+}
+
+/* configuração do botão de usuário */
 .cabecalho__usuario {
+    background-image: url("../img/usuario.svg");
     width: 35px;
     height: 35px;
-    background-image: url("../img/usuario.svg");
     background-repeat: no-repeat;
     background-position: center;
-    display: inline-block;
+    display: grid;
+    align-items: center;
+    justify-self: flex-end;
+    color: #95999C;
 }
 
-/* configuração do menu lateral */
+/* menu lateral sempre aberto */
+.menu-lateral__logo {
+    display: block;
+}
+
 .menu-lateral {
     display: flex;
     flex-direction: column;
     background-color: var(--cor-do-topo);
-    width: 45vw;
+    position: static;
+    width: 150px;
     height: 100vh;
-    position: absolute;
-    left: -100vw;
-    transition: .25s;
-}
-
-.menu-lateral__logo {
-    display: none;
-}
-
-/* transição de abertura e fechamento do menu */
-.menu-lateral--ativo {
-    left: 0;
-    transition: .25s;
+    grid-column: 1;
+    grid-row: 1 / span 2;
 }
 
 /* titulo do menu */
@@ -76,47 +83,81 @@
     align-items: center;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (max-width: 980px) {
+
     body {
-        display: grid;
-        grid-template-columns: auto 1fr;
+        display: block;
     }
 
     .cabecalho {
-        background-color: var(--cor-do-topo);
-        display: grid;
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
         column-gap: 32px;
+        justify-content: space-between;
         grid-template-columns: 1fr auto;
-        padding: 16px 60px;
         height: 70px;
         box-sizing: border-box;
         grid-column: 2;
     }
-    /* esconde o botão do menu */
+
     .cabecalho__menu {
-        display: none;
+        display: inline-block;
     }
-    /* esconde a logo do topo */
+
     .cabecalho__logo {
-        display: none;
+        display: inline-block;
     }
-    /* configuração do botão de usuário */
+
     .cabecalho__usuario {
-        display: grid;
-        align-items: center;
-        justify-self: flex-end;
-        color: #95999C;
+        display: inline-block;
     }
-    /* menu lateral sempre aberto */
+
+    /* configuração do menu lateral */
     .menu-lateral__logo {
-        display: block;
+        display: none;
     }
 
     .menu-lateral {
-        position: static;
-        width: 150px;
-        grid-column: 1;
-        grid-row: 1 / span 2;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--cor-do-topo);
+        width: 45vw;
+        height: 100vh;
+        left: -100vw;
+        transition: .25s;
     }
+
+    /* transição de abertura e fechamento do menu */
+    .menu-lateral--ativo {
+        left: 0;
+        transition: .25s;
+    }
+
+    /* titulo do menu */
+    .menu-lateral__titulo {
+        margin: 1em 0;
+        text-align: center;
+        color: var(--vermelho);
+        font-weight: 500;
+    }
+
+    /* configuração do botão que estiver ativo */
+    .menu-lateral__link--ativo {
+        color: #383838;
+        padding-left: 56px;
+        border-left: 8px solid #383838;
+    }
+
+    /* configuração dos demais botões */
+    .menu-lateral__link {
+        height: 64px;
+        color: #616262;
+        padding-left: 20px;
+        display: flex;
+        align-items: center;
+    }
+
 
 }
