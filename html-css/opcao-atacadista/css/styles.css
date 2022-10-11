@@ -6,6 +6,7 @@
     --vermelho: red;
     --azul-degrade: #002F52;
     --fonte-principal: "Poppins";
+    --cor-do-cartao: #F9F9F9;
 }
 
 body {
@@ -13,6 +14,8 @@ body {
     font-family: var(--fonte-principal);
     font-size: 16px;
 }
+
+/*------------corpo------------*/
 
 .principal {
     display: grid;
@@ -27,7 +30,7 @@ body {
     position: static;
     width: 650px;
     height: 400px;
-    background-color: #D9D9D9;
+    background-color: var(--cor-do-cartao);
     margin: 5em auto;
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
