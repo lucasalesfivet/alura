@@ -1,14 +1,44 @@
+:root {
+    --branco-principal: #FFFFFF;
+    --cinza-secundario: #C0C0C0;
+    --fonte-principal: 'Inter';
+}
+
 body {
     background: #ecf0f1;
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+}
 
+.cabecalho {
+    display: grid;
+    box-sizing: border-box;
 }
 
 .faixa {
-    height: 50px;
+    height: 4vh;
     background: #e74c3c;
+    text-align: right;
+    align-items: center;
+    padding-left: 10vh;
+    font-size: 0.9em;
+}
+
+.faixa-contato {
+    display: inline-block;
+    justify-self: flex-end;
+    color: #ffffff;
+    margin-right: 10vh;
 }
 
 .menu {
-    height: 150px;
-    background: #34495e;
+    height: 15vh;
+    box-shadow: 1px 5px 5px #888888;
+}
+
+.imagem-logo {
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    margin-left: 10vh;
 }
