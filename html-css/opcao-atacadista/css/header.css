@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .container {
@@ -26,4 +27,32 @@
 .container__imagem {
     padding: 1em;
     height: 40px;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 80%;
+}
+
+.container__botao:checked~.lista-menu {
+    display: block;
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1em;
+    background-color: var(--cor-do-topo);
+}
+
+.lista-menu__titulo {
+    color: var(--vermelho);
+}
+
+.lista-menu__link {
+    background: #000000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
 }
