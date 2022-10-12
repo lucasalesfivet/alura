@@ -7,6 +7,8 @@
     --azul-degrade: #002F52;
     --fonte-principal: "Poppins";
     --cor-do-cartao: #F9F9F9;
+    --cor-do-botao-mouse: #FA8072;
+    --cor-do-botao-clicado: red;
 }
 
 body {
@@ -51,6 +53,15 @@ body {
     font-weight: 700;
 }
 
+.footer {
+    display: grid;
+    grid-row: 3;
+}
+
+.barra  {
+    background-color: grey;
+}
+
 @media screen and (max-width: 980px) {
 
     .card {
@@ -58,3 +69,4 @@ body {
     }
 
 }
+

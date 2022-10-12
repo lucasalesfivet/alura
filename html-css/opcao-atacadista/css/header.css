@@ -51,7 +51,7 @@ body {
     flex-direction: column;
     background-color: var(--cor-do-topo);
     position: static;
-    width: 150px;
+    width: 10vw;
     height: 100vh;
     grid-column: 1;
     grid-row: 1 / span 2;
@@ -79,6 +79,14 @@ body {
     padding-left: 20px;
     display: flex;
     align-items: center;
+}
+
+.menu-lateral__link:hover {
+    background-color: var(--cor-do-botao-mouse);
+}
+
+.menu-lateral__link:active {
+    background-color: var(--cor-do-botao-clicado);
 }
 
 @media screen and (max-width: 980px) {
