@@ -50,7 +50,7 @@ body {
     flex-direction: column;
     background-color: var(--cor-do-topo);
     position: static;
-    width: 10vw;
+    width: 11vw;
     height: 100vh;
     grid-column: 1;
     grid-row: 1 / span 2;
@@ -73,7 +73,7 @@ body {
 
 /* configuração dos demais botões */
 .menu-lateral__link {
-    height: 64px;
+    height: 60px;
     color: #616262;
     padding-left: 20px;
     display: flex;
