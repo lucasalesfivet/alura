@@ -19,8 +19,8 @@ body {
     padding: 16px 35px;
     height: 65px;
     box-sizing: border-box;
-    grid-column: 2;
-    grid-row: 1 / span 1;
+    grid-column: 1 / span 2;
+    grid-row: 1;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -36,14 +36,14 @@ body {
 
 /* configuração do botão de usuário */
 .cabecalho__usuario {
+    display: grid;
     background-image: url("../img/usuario.svg");
     width: 35px;
     height: 35px;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: grid;
-    align-items: center;
     justify-self: flex-end;
+    background-repeat: no-repeat;
+    background-position: center;  
+    align-items: center;
 }
 
 /* menu lateral sempre aberto */
@@ -54,12 +54,12 @@ body {
 .menu-lateral {
     display: flex;
     flex-direction: column;
+    grid-column: 1;
+    grid-row: 1 / span 2;
     background-color: var(--cor-do-topo);
     position: static;
     width: 11vw;
     height: 100vh;
-    grid-column: 1;
-    grid-row: 1 / span 2;
 }
 
 /* titulo do menu */
