@@ -162,6 +162,16 @@ body {
     margin-top: 10px;
 }
 
+.card-titulo1-resumohoje {
+    font-size: 1.5em;
+}
+
+.card-titulo2-resumohoje {
+    font-size: 3em;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
 .red {
     color: red;
 }
