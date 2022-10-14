@@ -69,3 +69,27 @@ body {
     text-align: center;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 680px) {
+
+    .quadro {
+        width: 90%;
+        height: 250px;
+    }
+
+    .img-logo {
+        width: 170px;
+    }
+
+    .botao-entrar {
+        width: 200px;
+        height: 40px;
+        font-weight:500;
+        font-size: 20px;
+    }
+
+    .base {
+        font-size: 10px;
+    }
+
+}
