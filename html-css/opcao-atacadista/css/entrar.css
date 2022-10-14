@@ -45,7 +45,7 @@ body {
     color: rgb(77, 77, 77);
     display: flex;
     width: 400px;
-    height: 60px;
+    height: 55px;
     align-items: center;
     justify-content: center;
     background-color: #d0d0d0;
@@ -61,4 +61,11 @@ body {
 
 .botao-entrar:active {
     background-color: var(--cor-do-botao-clicado);
+}
+
+.base {
+    color: rgb(176, 176, 176);
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
 }
