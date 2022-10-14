@@ -57,7 +57,7 @@ body {
     display: grid;
     /*background-color: red;*/
     /*border: 5px solid black;*/
-    margin: 5em;
+    margin: 3em 2em;
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
 }
@@ -91,7 +91,7 @@ body {
 
 .card_vendas-botao-resumo  {
     display: flex;
-    width: 28vw;
+    width: 29vw;
     height: 100px;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
@@ -103,7 +103,7 @@ body {
     justify-self: flex-start;
 }
 
-.card_vendas-botao { 
+.card_vendas-botao {
     text-align: center;
     color: grey;
 }
@@ -119,7 +119,7 @@ body {
 
 .card_vendas-botao-dash  {
     display: flex;
-    width: 28vw;
+    width: 29vw;
     height: 100px;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
@@ -141,7 +141,7 @@ body {
     display: grid;
     /*background-color: red;*/
     /*border: 5px solid black;*/
-    margin: 2em;
+    margin: 3em auto;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     width: 70vw;
@@ -181,7 +181,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 100%;
-    height: 150px;
+    height: 18vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -194,7 +194,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 100%;
-    height: 150px;
+    height: 18vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -207,7 +207,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 100%;
-    height: 150px;
+    height: 18vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -220,7 +220,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 100%;
-    height: 150px;
+    height: 18vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -233,7 +233,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 100%;
-    height: 150px;
+    height: 18vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -246,7 +246,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 100%;
-    height: 150px;
+    height: 18vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -259,7 +259,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 74%;
-    height: 200px;
+    height: 20vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -272,7 +272,7 @@ body {
     flex-direction: column;
     justify-content: center; /*centraliza dentro da div*/
     width: 74%;
-    height: 200px;
+    height: 20vh;
     background-color: var(--cor-do-cartao);
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -285,7 +285,66 @@ body {
 
     .card {
         width: 80%;
-        margin: 3em;
+        margin: 3em auto;
+    }
+
+    .card_vendas  {
+        width: 100%;
+        height: 150px;
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    }
+
+    .card_vendas-botao-resumo  {
+        display: flex;
+        width: 37vw;
+        height: 80px;
+    }
+
+    .card_vendas-botao-dash  {
+        display: flex;
+        width: 37vw;
+        height: 80px;
+    }
+
+    .card-titulo1 {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .card-titulo2 {
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    .botao_resumo {
+        font-size: 70%;
+        font-weight: 500;
+    }
+
+    .quadro-resumo {
+        width: 90%;
+    }
+
+    .card-titulo1-resumo {
+        font-size: 0.7em;
+        font-weight: 400;
+    }
+    
+    .card-titulo2-resumo {
+        font-size: 1.1em;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+    
+    .card-titulo1-resumohoje {
+        font-size: 1em;
+    }
+    
+    .card-titulo2-resumohoje {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-top: 10px;
     }
 
 }
