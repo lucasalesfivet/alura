@@ -1,5 +1,5 @@
 /* pegando a classe do botão MENU no cabeçalho */
-const botaoMenu = document.querySelector('.cabecalho__menu')
+const botaoMenu = document.querySelector('.cabecalho__botao-menu')
 
 /* pegando a classe da NAVBAR */
 const menu = document.querySelector('.menu-lateral')
