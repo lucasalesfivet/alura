@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>OPCentral</title>
-    <link rel="icon" href="img/logoarcos.png"/>
+    <link rel="icon" href="img/logoarcos.png" />
     <link rel="stylesheet" href="css/reset.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,37 @@
             <article class="card_vendas-resumo7">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Pedidos Hoje</p>
-                    <h3 class="card-titulo2-resumohoje red">843</h3>
+                    <h3 class="card-titulo2-resumohoje red">
+                        <?php
+                        /*include 'connect/conexao.php';*/
+
+                        $ora_user = "CONSULTA";
+                        $ora_senha = "CONSULTA";
+
+                        $ora_bd =
+
+                            "(DESCRIPTION=
+                                (ADDRESS_LIST=
+                                    (ADDRESS=(PROTOCOL=TCP) 
+                                    (HOST=192.168.2.197)(PORT=1521)
+                                    )
+                                )
+                                (CONNECT_DATA=(SERVICE_NAME=wint))
+                            )";
+
+                        $conexao = oci_connect($ora_user, $ora_senha, $ora_bd);
+
+                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE)");
+
+                        $stid = oci_parse($conexao, $sql);
+                        $execute = oci_execute($stid);
+
+                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                            // Use the uppercase column names for the associative array indices
+                            echo $row['NUMPED'];
+                        }
+                        ?>
+                    </h3>
                 </div>
             </article>
             <article class="card_vendas-resumo8">
