@@ -128,7 +128,7 @@
 
                             while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                 // Use the uppercase column names for the associative array indices
-                                echo $row['VALOR'];
+                                echo 'R$'.$row['VALOR'];
                             }
                         ?>
                     </h3>
@@ -182,7 +182,7 @@
 
                             while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                 // Use the uppercase column names for the associative array indices
-                                echo $row['VALOR'];
+                                echo 'R$'.$row['VALOR'];
                             }
                         ?>
                     </h3>
