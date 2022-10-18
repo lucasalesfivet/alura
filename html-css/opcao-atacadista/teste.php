@@ -12,25 +12,32 @@
 
     <?php
 
-    $user = "CONSULTA";
-    $pass = "CONSULTA";
-    $name = "WINT";
-    $host = "192.168.2.197";
-
-    $tns = " (DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP) (HOST = " . $host . ")(PORT = 1521)))(CONNECT_DATA = (SID = " . $name . ")))";
-
-    $conexao = new PDO("oci:dbname=WINT;host=192.168.2.197", $user , $pass);
-
-    if (isset ($conexao) || empty($conexao)){
-        $erro = oci_error();
-        trigger_error(htmlentities($erro['erro'], ENT_QUOTES), E_USER_ERROR);
-    exit;
+    $tns = " 
+        (DESCRIPTION =
+            (ADDRESS_LIST =
+            (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.2.197)(PORT = 1521))
+            )
+            (CONNECT_DATA =
+            (SERVICE_NAME = wint)
+            )
+        )
+       ";
+    $db_username = "CONSULTA";
+    $db_password = "CONSULTA";
+    try {
+        $conexao = new PDO("oci:dbname=" . $tns, $db_username, $db_password);
+    } catch (PDOException $e) {
+        echo ($e->getMessage());
     }
-    
-    echo"ola";
 
+    $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE)");
 
+    $resultado = $conexao->prepare($sql);
+    $resultado->execute();
 
+    while ($res = $resultado->fetch(PDO::FETCH_ASSOC)) {
+        echo $res['NUMPED'];
+    }
 
 
     /* include 'connect/conexao.php';
