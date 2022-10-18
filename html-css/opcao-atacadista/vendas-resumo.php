@@ -121,7 +121,7 @@
                     <p class="card-titulo1-resumo">Faturamento Mês Atual</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT round(SUM(vltotal)) as VALOR FROM pcnfsaid where dtfat between '01-out-2022' and '31-out-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-out-2022' and '31-out-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -175,7 +175,7 @@
                     <p class="card-titulo1-resumo">Faturamento Mês Anterior</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
-                            $sql = ("SELECT round(SUM(vltotal)) as VALOR FROM pcnfsaid where dtfat between '01-set-2022' and '30-set-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-set-2022' and '30-set-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
