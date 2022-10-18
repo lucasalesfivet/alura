@@ -1,3 +1,4 @@
+<?php include 'connect/conexao.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,6 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/JavaScript">
+        /* function doLoad()
+            {
+                setTimeout( "refresh()", 100*1000 );
+            }
+
+            function refresh()
+            {
+                window.location.href = window.location;
+            }
+        */
+    </script>
 </head>
 
 <body>
@@ -31,66 +44,12 @@
 
     <main class="principal">
         <div class="quadro-resumo">
-            <article class="card_vendas-resumo1">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Pedidos Mês Atual</p>
-                    <h3 class="card-titulo2-resumo">27.604</h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo2">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Devoluções Mês Atual</p>
-                    <h3 class="card-titulo2-resumo">170</h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo3">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento Mês Atual</p>
-                    <h3 class="card-titulo2-resumo">R$1,5 mi</h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo4">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Pedidos Mês Anterior</p>
-                    <h3 class="card-titulo2-resumo">29.411</h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo5">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Devoluções Mês Anterior</p>
-                    <h3 class="card-titulo2-resumo">211</h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo6">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento Mês Anterior</p>
-                    <h3 class="card-titulo2-resumo">R$1,8 mi</h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo7">
+        <article class="card_vendas-resumo7">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Pedidos Hoje</p>
                     <h3 class="card-titulo2-resumohoje red">
                         <?php
-                        /*include 'connect/conexao.php';*/
-
-                        $ora_user = "CONSULTA";
-                        $ora_senha = "CONSULTA";
-
-                        $ora_bd =
-
-                            "(DESCRIPTION=
-                                (ADDRESS_LIST=
-                                    (ADDRESS=(PROTOCOL=TCP) 
-                                    (HOST=192.168.2.197)(PORT=1521)
-                                    )
-                                )
-                                (CONNECT_DATA=(SERVICE_NAME=wint))
-                            )";
-
-                        $conexao = oci_connect($ora_user, $ora_senha, $ora_bd);
-
-                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE)");
+                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('L','M','F') and codcob <> 'BNF'");
 
                         $stid = oci_parse($conexao, $sql);
                         $execute = oci_execute($stid);
@@ -105,10 +64,131 @@
             </article>
             <article class="card_vendas-resumo8">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumohoje">Devoluções Hoje</p>
-                    <h3 class="card-titulo2-resumohoje red">17</h3>
+                    <p class="card-titulo1-resumohoje">Pedidos Faturados</p>
+                    <h3 class="card-titulo2-resumohoje red">
+                        <?php
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat = trunc(SYSDATE) and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+    
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['NUMNOTA'];
+                            }
+                        ?>
+                    </h3>
                 </div>
             </article>
+            <article class="card_vendas-resumo1">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Pedidos Bloqueados</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('B') and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+    
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['NUMPED'];
+                            }
+                        ?>
+                    </h3>
+                </div>
+            </article>
+            <article class="card_vendas-resumo2">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Pedidos Mês Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-out-2022' AND '31-out-2022' and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['NUMNOTA'];
+                            }
+                        ?>
+                    </h3>
+                </div>
+            </article>
+            <article class="card_vendas-resumo3">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Faturamento Mês Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT round(SUM(vltotal)) as VALOR FROM pcnfsaid where dtfat between '01-out-2022' and '31-out-2022' and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                </div>
+            </article>
+            <article class="card_vendas-resumo4">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Total de Pedidos</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['NUMPED'];
+                            }
+                        ?>
+                    </h3>
+                </div>
+            </article>
+            <article class="card_vendas-resumo5">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Pedidos Mês Anterior</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-SET-2022' AND '30-SET-2022' and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['NUMNOTA'];
+                            }
+                        ?>
+                    </h3>
+                </div>
+            </article>
+            <article class="card_vendas-resumo6">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Faturamento Mês Anterior</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT round(SUM(vltotal)) as VALOR FROM pcnfsaid where dtfat between '01-set-2022' and '30-set-2022' and codcob <> 'BNF'");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo $row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                </div>
+            </article>
+            
         </div>
     </main>
 

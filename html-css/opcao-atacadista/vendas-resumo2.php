@@ -83,7 +83,7 @@
                             echo ($e->getMessage());
                         }
 
-                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE)");
+                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao = 'L'");
 
                         $resultado = $conexao->prepare($sql);
                         $resultado->execute();
@@ -100,7 +100,9 @@
             <article class="card_vendas-resumo8">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Devoluções Hoje</p>
-                    <h3 class="card-titulo2-resumohoje red">17</h3>
+                    <h3 class="card-titulo2-resumohoje red">
+
+                    </h3>
                 </div>
             </article>
         </div>
