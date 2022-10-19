@@ -12,17 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <script type="text/JavaScript">
-         function doLoad()
-            {
-                setTimeout( "refresh()", 100*1000 );
-            }
-
-            function refresh()
-            {
-                window.location.href = window.location;
-            }
-        */
+    <script>
+        function autoRefresh() {
+            window.location = window.location.href;
+        }
+        setInterval('autoRefresh()', 60000);
     </script>
 </head>
 
