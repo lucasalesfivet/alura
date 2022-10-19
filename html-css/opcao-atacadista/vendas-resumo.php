@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/JavaScript">
-        /* function doLoad()
+         function doLoad()
             {
                 setTimeout( "refresh()", 100*1000 );
             }
