@@ -36,9 +36,9 @@
     $resultado->execute();
 
     while ($res = $resultado->fetch(PDO::FETCH_ASSOC)) {
-        echo $res['NUMPED'];
+        $teste = $res['NUMPED'];
     }
-
+    echo $teste;
 
     /* include 'connect/conexao.php';
     
