@@ -1,0 +1,38 @@
+:root {
+    --darkred: #8b0000;
+    --darkred-hover: #a52a2a;
+}
+
+.img-carousel {
+    height: 400px;
+    object-fit: cover; /* preencher imagem */
+    object-position: 0 70%; /* posição dentro do container */
+}
+
+.fonte-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+.cor-red {
+    color: darkr;
+}
+
+.borda-receita {
+    border-color: var(--darkred);
+}
+
+.botao-receita {
+    color: white;
+    background-color: var(--darkred);
+    border: none;
+}
+
+.botao-receita:hover {
+    color: white;
+    background-color: var(--darkred-hover);
+}
+
+.img-card {
+    height: 200px;
+    object-fit: cover;
+}
