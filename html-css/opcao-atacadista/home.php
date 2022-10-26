@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+        // se usuario nao registrado, redireciona p/ validacao
+
+        if(!isset($_SESSION['usu']))
+
+                header("Location: index.php?op=err"); 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,34 +34,23 @@
     <nav class="menu-lateral">
         <img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
         <h3 class="menu-lateral__titulo">Diretoria</h3>
-        <a href="home.html" class="menu-lateral__link">Início</a>
-        <a href="vendas.html" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
+        <a href="home.php" class="menu-lateral__link menu-lateral__link--ativo">Início</a>
+        <a href="vendas-resumo.php" class="menu-lateral__link">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link">Financeiro</a>
         <a href="logistica.html" class="menu-lateral__link">Logística</a>
     </nav>
 
     <main class="principal">
-        <div class="quadro">
-            <article class="card_vendas">
-                <div class="card-texto">
-                    <p class="card-titulo1">Painel de</p>
-                    <h3 class="card-titulo2">Vendas</h3>
-                </div>
-            </article>
-            <div class="card_vendas-botao-resumo">
-                <div class="card_vendas-botao">
-                    <a href="vendas-resumo.php" class="card_vendas-botao-resumo botao_resumo">Resumo atual</a>
-                </div>
+        <article class="card">
+            <div class="card-texto">
+                <p class="card-titulo1">Bem vindo ao</p>
+                <h3 class="card-titulo2">OPCentral</h3>
             </div>
-            <div class="card_vendas-botao-dash">
-                <div class="card_vendas-botao">
-                    <a href="#" class="card_vendas-botao-dash botao_resumo">Dashboard</a>
-                </div>
-            </div>
+        </article>     
     </main>
 
 
-    <script src="index.js"></script>
+<script src="index.js"></script>
 </body>
 
 </html>

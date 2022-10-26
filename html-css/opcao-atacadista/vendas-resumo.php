@@ -1,4 +1,18 @@
-<?php include 'connect/conexao.php'; ?>
+<?php 
+
+session_start();
+
+    // se usuario nao registrado, redireciona p/ validacao
+
+    if(!isset($_SESSION['usu']))
+
+    header("Location: index.php?op=err"); 
+
+include 'connect/conexao.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,13 +38,13 @@
     <header class="cabecalho">
         <button type="button" class="cabecalho__botao-menu"></button>
         <img src="img/logotipo.png" alt="Logotipo da Opção" class="cabecalho__logo">
-        <button type="button" class="cabecalho__botao-usuario"></button>
+        <button type="button" class="cabecalho__botao-usuario"><a href="index.php" style="color: transparent;">sair</a></button>
     </header>
 
     <nav class="menu-lateral">
         <img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
         <h3 class="menu-lateral__titulo">Diretoria</h3>
-        <a href="home.html" class="menu-lateral__link">Início</a>
+        <a href="home.php" class="menu-lateral__link">Início</a>
         <a href="vendas-resumo.php" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link">Financeiro</a>
         <a href="logistica.html" class="menu-lateral__link">Logística</a>

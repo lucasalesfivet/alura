@@ -12,23 +12,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/menu.css">
+    <script language="JavaScript" type="text/javascript" src="connect/funcs.js"></script>
 </head>
 
 <body>
 
     <div class="container" id="caixa">
         <img src="img/logoquadrada.png" class="img-logo">
-        <form id="formulario">
+        <form id="formulario" method="post" action="verif.php" name="form" AUTOCOMPLETE='ON' onSubmit="return valida()">
             <div class="form-group">
                 <!-- <label id="formulario-texto">Usuário:</label> -->
-                <input type="text" name="usuario" class="form-control" placeholder="Informe seu usuário" autocomplete="off" >
+                <input type="text" name="usu" class="form-control" placeholder="Informe seu usuário" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <!-- <label id="formulario-texto">Senha:</label> -->
-                <input type="password" name="senha" class="form-control" placeholder="Digite sua senha" autocomplete="off" >
+                <input type="password" name="senha" class="form-control" placeholder="Digite sua senha" autocomplete="off" required>
             </div>
             <div class="botao">
-                <a href="home.html"><button type="button" class="btn btn-success btn-block">Entrar</button></a>
+                <button type="submit" class="btn btn-success btn-block">Entrar</button>
             </div>
         </form>
         <div class="rodape">
@@ -36,7 +37,8 @@
         </div>
     </div>
 
-<!--
+
+    <!--
     <section class="principal">
         <div class="quadro">
             <img src="img/logoquadrada.png" class="img-logo">
