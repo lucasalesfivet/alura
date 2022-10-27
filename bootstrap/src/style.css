@@ -13,12 +13,17 @@
     font-family: 'Pacifico', cursive;
 }
 
-.cor-red {
-    color: darkr;
+.cor-titulo {
+    color: darkred!important;
 }
 
-.borda-receita {
+.cor-red {
+    color: darkred;
+}
+
+.card-receita {
     border-color: var(--darkred);
+    max-width: 17rem;
 }
 
 .botao-receita {
