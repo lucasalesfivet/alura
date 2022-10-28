@@ -47,7 +47,7 @@ include 'connect/conexao.php';
         <a href="home.php" class="menu-lateral__link">Início</a>
         <a href="vendas-resumo.php" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link">Financeiro</a>
-        <a href="logistica.html" class="menu-lateral__link">Logística</a>
+        <a href="logistica.php" class="menu-lateral__link">Logística</a>
     </nav>
 
     <main class="principal">
