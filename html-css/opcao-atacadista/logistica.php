@@ -48,15 +48,59 @@ include 'connect/conexao.php';
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Caminhões em Rota</p>
                     <h3 class="card-titulo2-resumohoje red">
-                        30
+                        <?php
+                        $sql = ("SELECT * FROM
+                          (SELECT COUNT (codveiculo)QT_VEICULO_ATIVO
+                          FROM pcveicul
+                          WHERE situacao     <> 'I'
+                          AND codveiculo NOT IN (0,1, 267)
+                          ) veiculo_ativo,
+                          (SELECT COUNT (DISTINCT (codveiculo)) EMROTA
+                          FROM pccarreg
+                          WHERE dtfecha      IS NULL
+                          AND destino NOT    IN ( 'VENDA BALCAO', 'CANCELADO')
+                          AND codveiculo NOT IN (0,1,267)
+                          AND dtsaida  >= '01-set-2022'
+                          )veiculo_viagem");
+
+                        $stid = oci_parse($conexao, $sql);
+                        $execute = oci_execute($stid);
+
+                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                            // Use the uppercase column names for the associative array indices
+                            echo $row['EMROTA'];
+                        }
+                        ?>
                     </h3>
                 </div>
             </article>
             <article class="card_vendas-resumo8">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumohoje">Caminhões Disponíveis</p>
+                    <p class="card-titulo1-resumohoje">Caminhões Livres</p>
                     <h3 class="card-titulo2-resumohoje red">
-                        15
+                        <?php
+                        $sql = ("SELECT * FROM
+                          (SELECT COUNT (codveiculo) ATIVOS
+                          FROM pcveicul
+                          WHERE situacao     <> 'I'
+                          AND codveiculo NOT IN (0,1, 267)
+                          ) veiculo_ativo,
+                          (SELECT COUNT (DISTINCT (codveiculo)) EMROTA
+                          FROM pccarreg
+                          WHERE dtfecha      IS NULL
+                          AND destino NOT    IN ( 'VENDA BALCAO', 'CANCELADO')
+                          AND codveiculo NOT IN (0,1,267)
+                          AND dtsaida  >= '01-set-2022'
+                          )veiculo_viagem");
+
+                        $stid = oci_parse($conexao, $sql);
+                        $execute = oci_execute($stid);
+
+                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                            // Use the uppercase column names for the associative array indices
+                            echo $row['ATIVOS'] - $row['EMROTA'];
+                        }
+                        ?>
                     </h3>
                 </div>
             </article>
@@ -66,9 +110,10 @@ include 'connect/conexao.php';
                     <h3 class="card-titulo2-resumo">
                         <?php
                         $sql = ("SELECT 'PALMAS_MARABA', 
+                        count (ped.numped)qtd_ped,
                         SUM (ped.vlatend)VLTOTROTA,
-                        SUM (r.vlmincarreg)VLMINROTAS  ,
-                        ROUND (((SUM (ped.vlatend)/SUM(r.vlmincarreg))*100),2) PERCMIN,
+                          SUM(distinct (r.vlmincarreg))VLMINROTAS  ,
+                        ROUND (((SUM (ped.vlatend)/SUM(distinct (r.vlmincarreg)))*100),2) PERCMIN,
                         COUNT(ped.posicao) TOTPEDIDOS
                       FROM pcclient c
                       JOIN pcpraca p
@@ -77,7 +122,7 @@ include 'connect/conexao.php';
                       ON r.codrota = p.rota
                       JOIN pcpedc ped
                       ON ped.codcli     = c.codcli
-                      WHERE ped.posicao = 'L' and r.codrota in (46,36) GROUP BY '1', 'PALMAS_MARABA'");
+                      WHERE ped.posicao = 'L' and r.codrota in (46,36) GROUP BY 'PALMAS_MARABA'");
 
                         $stid = oci_parse($conexao, $sql);
                         $execute = oci_execute($stid);
@@ -105,10 +150,11 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Posse/Goiás Velho</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                        $sql = ("SELECT 'PALMAS_MARABA', 
+                        $sql = ("SELECT 'POSSE_GOIASVELHO', 
+                        count (ped.numped)qtd_ped,
                         SUM (ped.vlatend)VLTOTROTA,
-                        SUM (r.vlmincarreg)VLMINROTAS  ,
-                        ROUND (((SUM (ped.vlatend)/SUM(r.vlmincarreg))*100),2) PERCMIN,
+                        SUM(distinct (r.vlmincarreg))VLMINROTAS  ,
+                        ROUND (((SUM (ped.vlatend)/SUM(distinct (r.vlmincarreg)))*100),2) PercMin,
                         COUNT(ped.posicao) TOTPEDIDOS
                       FROM pcclient c
                       JOIN pcpraca p
