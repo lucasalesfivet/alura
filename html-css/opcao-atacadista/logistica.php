@@ -60,7 +60,7 @@ include 'connect/conexao.php';
                           WHERE dtfecha      IS NULL
                           AND destino NOT    IN ( 'VENDA BALCAO', 'CANCELADO')
                           AND codveiculo NOT IN (0,1,267)
-                          AND dtsaida  >= '01-set-2022'
+                          AND dtsaida  >= '01-out-2022'
                           )veiculo_viagem");
 
                         $stid = oci_parse($conexao, $sql);
@@ -90,7 +90,7 @@ include 'connect/conexao.php';
                           WHERE dtfecha      IS NULL
                           AND destino NOT    IN ( 'VENDA BALCAO', 'CANCELADO')
                           AND codveiculo NOT IN (0,1,267)
-                          AND dtsaida  >= '01-set-2022'
+                          AND dtsaida  >= '01-out-2022'
                           )veiculo_viagem");
 
                         $stid = oci_parse($conexao, $sql);

@@ -111,7 +111,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Pedidos Mês Atual</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-out-2022' AND '31-out-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-nov-2022' AND '31-nov-2022' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -129,7 +129,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Faturamento Mês Atual</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-out-2022' and '31-out-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-nov-2022' and '31-nov-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -165,7 +165,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Pedidos Mês Anterior</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-SET-2022' AND '30-SET-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-out-2022' AND '30-out-2022' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -183,7 +183,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Faturamento Mês Anterior</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-set-2022' and '30-set-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-out-2022' and '30-out-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);

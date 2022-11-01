@@ -79,7 +79,7 @@
                     <p class="card-titulo1-resumo">Pedidos Bloqueados</p>
                     <h3 class="card-titulo2-resumo red">
                         <?php
-                        $sql = ("SELECT count(*) NUMPED FROM pcpedc WHERE data BETWEEN '01-out-2022' AND '31-out-2022' and posicao in ('B') and codcob <> 'BNF'");
+                        $sql = ("SELECT count(*) NUMPED FROM pcpedc WHERE data BETWEEN '01-nov-2022' AND '30-nov-2022' and posicao in ('B') and codcob <> 'BNF'");
 
                         $stid = oci_parse($conexao, $sql);
                         $execute = oci_execute($stid);
