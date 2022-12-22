@@ -54,7 +54,7 @@ include 'connect/conexao.php';
         <div class="quadro-resumo">
         <article class="card_vendas-resumo7">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumohoje">Pedidos Hoje</p>
+                    <p class="card-titulo1-resumohoje">Pedidos Liberados Hoje</p>
                     <h3 class="card-titulo2-resumohoje red">
                         <?php
                         $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('L','M','F') and codcob <> 'BNF'");

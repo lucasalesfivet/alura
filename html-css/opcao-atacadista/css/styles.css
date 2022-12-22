@@ -152,13 +152,13 @@ body {
 }
 
 .card-titulo1-resumo {
-    font-size: 1em;
-    font-weight: 500;
+    font-size: 0.9em;
+    font-weight: 400;
 }
 
 .card-titulo2-resumo {
-    font-size: 2.2em;
-    font-weight: 700;
+    font-size: 1.8em;
+    font-weight: 600;
     margin-top: 10px;
 }
 
@@ -170,11 +170,11 @@ body {
 }
 
 .card-titulo1-resumohoje {
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .card-titulo2-resumohoje {
-    font-size: 2.8em;
+    font-size: 2.2em;
     font-weight: 700;
     margin-top: 10px;
 }
@@ -286,6 +286,18 @@ body {
     grid-column: 2 / span 2;
     grid-row: 1;
     justify-self: flex-end;
+}
+
+.greenback {
+    background-color: #CEFF9D;
+}
+
+.yellowback {
+ background-color: #FFF0BC;
+}
+
+.redback {
+    background-color: #FFBDBD;
 }
 
 @media screen and (max-width: 980px) {
