@@ -18,6 +18,10 @@ body {
 
 /*------------corpo------------*/
 
+b {
+    font-weight: 500;
+}
+
 .principal {
     grid-column: 2;
     grid-row: 2 / span 2;
@@ -298,6 +302,10 @@ body {
 
 .redback {
     background-color: #FFBDBD;
+}
+
+.bottom {
+    margin-bottom: 3px;
 }
 
 @media screen and (max-width: 980px) {

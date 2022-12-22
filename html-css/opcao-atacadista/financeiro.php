@@ -134,25 +134,28 @@
             </article>
             <article class="card_vendas-resumo4 greenback">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Últimos 12 meses +30dias</p>
+                    <p class="card-titulo1-resumo bottom">Inadimplência</p>
+                    <p class="card-titulo1-resumo"><b>Últimos 12 meses +30dias</b></p>
                     <h3 class="card-titulo2-resumo">
-                        0,47%
+                        0,49%
                     </h3>
                 </div>
             </article>
             <article class="card_vendas-resumo5 yellowback">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Total +60dias</p>
+                    <p class="card-titulo1-resumo bottom">Inadimplência</p>
+                    <p class="card-titulo1-resumo"><b>Total +60dias</b></p>
                     <h3 class="card-titulo2-resumo">
-                        0,53%
+                        0,47%
                     </h3>
                 </div>
             </article>
             <article class="card_vendas-resumo6 redback">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Anterior ao Atual</p>
+                    <p class="card-titulo1-resumo bottom">Inadimplência</p>
+                    <p class="card-titulo1-resumo"><b>Anterior ao Atual</b></p>
                     <h3 class="card-titulo2-resumo">
-                        0,49%
+                        0,53%
                     </h3>
                 </div>
             </article>
