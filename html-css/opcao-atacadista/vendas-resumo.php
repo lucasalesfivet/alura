@@ -104,6 +104,7 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
+                    <p class="card-titulo1-resumo subtitulo">aguardando liberar</p>
                 </div>
             </article>
             <article class="card_vendas-resumo2">

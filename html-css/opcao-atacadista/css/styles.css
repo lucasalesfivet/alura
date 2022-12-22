@@ -160,6 +160,11 @@ b {
     font-weight: 400;
 }
 
+.subtitulo {
+    margin-top: 5px;
+    font-size: 0.7em;
+}
+
 .card-titulo2-resumo {
     font-size: 1.8em;
     font-weight: 600;
