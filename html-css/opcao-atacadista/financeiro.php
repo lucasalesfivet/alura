@@ -137,7 +137,27 @@
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>                    
                     <h3 class="card-titulo2-resumo bottom">
-                        0,49%
+                        <?php
+                            $sql = ("SELECT ROUND(((inad.VLINADIPLENCIA/ prev.VLPREVISOT) *100),2) PERC_INAD
+                            FROM
+                              (SELECT SUM (valor)VLINADIPLENCIA
+                              FROM pcprest
+                              WHERE dtvenc BETWEEN (trunc(SYSDATE)-366) AND (trunc(SYSDATE)-31)
+                              AND dtpag IS NULL
+                              ) INAD,
+                              (SELECT SUM (valor)VLPREVISOT
+                              FROM pcprest
+                              WHERE dtvenc BETWEEN (trunc(SYSDATE)-366) AND (trunc(SYSDATE)-31)
+                              AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo '0'.$row['PERC_INAD'].'%';
+                            }
+                        ?>
                     </h3>
                     <p class="card-titulo1-resumo">Últimos 12 meses +30dias</p>
                 </div>
@@ -146,7 +166,27 @@
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>
                     <h3 class="card-titulo2-resumo bottom">
-                        0,47%
+                        <?php
+                            $sql = ("SELECT ROUND(((inad.VLINADIPLENCIA/ prev.VLPREVISOT) *100),2) PERC_INAD
+                            FROM
+                              (SELECT SUM (valor)VLINADIPLENCIA
+                              FROM pcprest
+                              WHERE dtvenc BETWEEN '01-out-2010' AND (trunc(SYSDATE)-60)
+                              AND dtpag IS NULL
+                              ) INAD,
+                              (SELECT SUM (valor)VLPREVISOT
+                              FROM pcprest
+                              WHERE dtvenc BETWEEN '01-out-2010' AND (trunc(SYSDATE)-60)
+                              AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo '0'.$row['PERC_INAD'].'%';
+                            }
+                        ?>
                     </h3>
                     <p class="card-titulo1-resumo">Total +60dias</p>
                 </div>
@@ -155,9 +195,37 @@
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>
                     <h3 class="card-titulo2-resumo bottom">
-                        0,53%
+                        <?php
+                            $sql = ("SELECT ROUND(((inad.VLINADIPLENCIA/ prev.VLPREVISOT) *100),2) PERC_INAD
+                            FROM
+                              (SELECT SUM (valor)VLINADIPLENCIA
+                              FROM pcprest
+                              WHERE dtvenc in (select c.data 
+                             from PCDIASUTEIS c, pcconsum d
+                             where extract(month from c.data) = (extract (month from d.dtprocessamento))-2
+                             and
+                             extract(year from c.data) = extract (year from d.dtprocessamento))
+                              AND dtpag IS NULL
+                              ) INAD,
+                              (SELECT SUM (valor)VLPREVISOT
+                              FROM pcprest
+                              WHERE dtvenc in (select c.data 
+                             from PCDIASUTEIS c, pcconsum d
+                             where extract(month from c.data) = (extract (month from d.dtprocessamento))-2
+                             and
+                             extract(year from c.data) = extract (year from d.dtprocessamento))
+                              AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo '0'.$row['PERC_INAD'].'%';
+                            }
+                        ?>
                     </h3>
-                    <p class="card-titulo1-resumo">Anterior ao Atual</p>
+                    <p class="card-titulo1-resumo">Outubro/2022</p>
                 </div>
             </article>
         </div>
