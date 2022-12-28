@@ -5,4 +5,4 @@ $primeiraIdade = $idadeList[0];
 
 echo $primeiraIdade;
 
-?>
+?> 
