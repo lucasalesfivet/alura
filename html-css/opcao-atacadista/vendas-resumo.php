@@ -54,10 +54,10 @@ include 'connect/conexao.php';
         <div class="quadro-resumo">
         <article class="card_vendas-resumo7">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumohoje">Pedidos Liberados Hoje</p>
+                    <p class="card-titulo1-resumohoje">Pedidos Feitos Hoje</p>
                     <h3 class="card-titulo2-resumohoje red">
                         <?php
-                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('L','M','F') and codcob <> 'BNF'");
+                        $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('L','M','F','B') and codcob <> 'BNF'");
 
                         $stid = oci_parse($conexao, $sql);
                         $execute = oci_execute($stid);
@@ -72,7 +72,7 @@ include 'connect/conexao.php';
             </article>
             <article class="card_vendas-resumo8">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumohoje">Pedidos Faturados</p>
+                    <p class="card-titulo1-resumohoje">Pedidos Faturados Hoje</p>
                     <h3 class="card-titulo2-resumohoje red">
                         <?php
                             $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat = trunc(SYSDATE) and codcob <> 'BNF'");
@@ -90,29 +90,29 @@ include 'connect/conexao.php';
             </article>
             <article class="card_vendas-resumo1">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Pedidos Bloqueados</p>
+                    <p class="card-titulo1-resumo">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('B') and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2023' AND '31-jan-2023' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
-    
+
                             while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                 // Use the uppercase column names for the associative array indices
-                                echo $row['NUMPED'];
+                                echo $row['NUMNOTA'];
                             }
                         ?>
                     </h3>
-                    <p class="card-titulo1-resumo subtitulo">aguardando liberar</p>
+                    <p class="card-titulo1-resumo subtitulo">mês atual</p>
                 </div>
             </article>
             <article class="card_vendas-resumo2">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Pedidos Mês Atual</p>
+                    <p class="card-titulo1-resumo">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-dez-2022' AND '30-dez-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-dez-2022' AND '31-dez-2022' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -123,50 +123,15 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
+                    <p class="card-titulo1-resumo subtitulo">mês anterior</p>
                 </div>
             </article>
             <article class="card_vendas-resumo3">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento Mês Atual</p>
-                    <h3 class="card-titulo2-resumo">
-                        <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-dez-2022' and '30-dez-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
-
-                            $stid = oci_parse($conexao, $sql);
-                            $execute = oci_execute($stid);
-
-                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-                                // Use the uppercase column names for the associative array indices
-                                echo 'R$'.$row['VALOR'];
-                            }
-                        ?>
-                    </h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo4">
-                <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and codcob <> 'BNF'");
-
-                            $stid = oci_parse($conexao, $sql);
-                            $execute = oci_execute($stid);
-
-                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-                                // Use the uppercase column names for the associative array indices
-                                echo $row['NUMPED'];
-                            }
-                        ?>
-                    </h3>
-                </div>
-            </article>
-            <article class="card_vendas-resumo5">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Pedidos Mês Anterior</p>
-                    <h3 class="card-titulo2-resumo">
-                        <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-nov-2022' AND '30-nov-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2022' AND '31-jan-2022' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -177,14 +142,15 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
+                    <p class="card-titulo1-resumo subtitulo">mês atual/ano anterior</p>
                 </div>
             </article>
-            <article class="card_vendas-resumo6">
+            <article class="card_vendas-resumo4">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento Mês Anterior</p>
+                    <p class="card-titulo1-resumo">Faturamento</p>
                     <h3 class="card-titulo2-resumo">
-                    <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-nov-2022' and '30-nov-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                        <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2023' and '31-jan-2023' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -195,6 +161,45 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
+                    <p class="card-titulo1-resumo subtitulo">mês atual</p>
+                </div>
+            </article>
+            <article class="card_vendas-resumo5">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Faturamento</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-dez-2022' and '31-dez-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">mês anterior</p>
+                </div>
+            </article>
+            <article class="card_vendas-resumo6">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Faturamento</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2022' and '31-jan-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">mês atual/ano anterior</p>
                 </div>
             </article>
             

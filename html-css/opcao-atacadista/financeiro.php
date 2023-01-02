@@ -194,9 +194,9 @@
             <article class="card_vendas-resumo6 redback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>
-                    <h3 class="card-titulo2-resumo bottom">
+                    <h3 class="card-titulo2-resumo bottom"> 0,52%
                         <?php
-                            $sql = ("SELECT ROUND(((inad.VLINADIPLENCIA/ prev.VLPREVISOT) *100),2) PERC_INAD
+                         /*   $sql = ("SELECT ROUND(((inad.VLINADIPLENCIA/ prev.VLPREVISOT) *100),2) PERC_INAD
                             FROM
                               (SELECT SUM (valor)VLINADIPLENCIA
                               FROM pcprest
@@ -222,10 +222,10 @@
                             while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                 // Use the uppercase column names for the associative array indices
                                 echo '0'.$row['PERC_INAD'].'%';
-                            }
+                            } */
                         ?>
                     </h3>
-                    <p class="card-titulo1-resumo">Outubro/2022</p>
+                    <p class="card-titulo1-resumo">Novembro/2022</p>
                 </div>
             </article>
         </div>

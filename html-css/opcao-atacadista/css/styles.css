@@ -313,6 +313,10 @@ b {
     margin-bottom: 3px;
 }
 
+.none {
+    display: none;
+}
+
 @media screen and (max-width: 980px) {
 
     .card {
