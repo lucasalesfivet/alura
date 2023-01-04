@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artigo = new Artigo($mysql);
     $artigo->adicionarArtigo($_POST['titulo'], $_POST['conteudo']);
 
-    header('Location: index.html');
+    header('Location: index.php');
+    die();
 }
 
 ?>
