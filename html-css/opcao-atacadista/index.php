@@ -33,7 +33,7 @@
             </div>
         </form>
         <div class="rodape">
-            <h3>OPCentral | Tecnologia & Inovação - 2022</h3>
+            <h3>OPCentral | Tecnologia & Inovação - 2023</h3>
         </div>
     </div>
 
