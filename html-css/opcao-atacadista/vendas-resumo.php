@@ -43,7 +43,7 @@ include 'connect/conexao.php';
 
     <nav class="menu-lateral">
         <img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
-        <h3 class="menu-lateral__titulo">Diretoria</h3>
+        <h3 class="menu-lateral__titulo">OPCentral</h3>
         <a href="home.php" class="menu-lateral__link">Início</a>
         <a href="vendas-resumo.php" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link">Financeiro</a>
