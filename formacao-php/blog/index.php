@@ -25,7 +25,7 @@ $artigos = $artigo->exibirTodos();
         <h1>FivetDigital | Meu Blog</h1>
         <?php foreach ($artigos as $artigo) : ?>
         <h2>
-            <a href="artigo.php?id<?php echo $artigo['id']?>">
+            <a href="artigo.php?id=<?php echo $artigo['id']?>">
                 <?php echo $artigo['titulo']; ?>
             </a>
         </h2>
