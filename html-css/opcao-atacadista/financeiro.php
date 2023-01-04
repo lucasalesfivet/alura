@@ -194,7 +194,7 @@
             <article class="card_vendas-resumo6 redback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>
-                    <h3 class="card-titulo2-resumo bottom"> 0,52%
+                    <h3 class="card-titulo2-resumo bottom"> 0,51%
                         <?php
                          /*   $sql = ("SELECT ROUND(((inad.VLINADIPLENCIA/ prev.VLPREVISOT) *100),2) PERC_INAD
                             FROM

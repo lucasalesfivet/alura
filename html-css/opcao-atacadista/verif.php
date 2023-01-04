@@ -31,7 +31,6 @@ $senha = $_REQUEST['senha'];
 $ip_server = "192.168.1.83";
 
 if (valida_ldap($ip_server, $usu, $senha)) {
-    echo "usuario autenticado<br>";
 
     session_start();
     $_SESSION['usu'] = $usu;
@@ -40,8 +39,8 @@ if (valida_ldap($ip_server, $usu, $senha)) {
 
 } else {
 
-    echo "Usuario ou Senha Invalidos";
-    echo "<br><input type='button' value='voltar' onclick='location.href=\"index.php\";'>";
+    session_start();
+    header("Location: index.php");
 }
 
 ?>
