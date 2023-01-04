@@ -1,3 +1,13 @@
+<?php
+
+require 'config.php';
+require 'src/Artigo.php';
+
+$obj_artigo = new Artigo($mysql);
+$artigo = $obj_artigo->exibirArtigo($_GET['id']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,16 +19,17 @@
 
 <body>
     <div id="container">
+        
         <h1>
-            Primeiros passos com Spring
+            <?php echo $artigo['titulo']; ?>
         </h1>
         <p>
-            Na empresa onde trabalho começamos um Coding Dojo, que é basicamente uma reunião com programadores e
-            programadoras a fim de resolver desafios e aperfeiçoar as habilidades com algoritmos.
+            <?php echo $artigo['conteudo']; ?>
         </p>
+        
         <div>
             <a class="botao botao-block" href="index.php">Voltar</a>
-        </div>
+        </div>       
     </div>
 </body>
 
