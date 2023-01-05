@@ -38,7 +38,7 @@
 
     <main class="principal">
         <div class="quadro-resumo">
-            <article class="card_vendas-resumo7">
+            <article class="card_vendas-dash1">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumohoje">
@@ -56,7 +56,7 @@
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo8">
+            <article class="card_vendas-dash2">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Pedidos em Análise</p>
                     <h3 class="card-titulo2-resumohoje red">
@@ -74,7 +74,7 @@
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo1">
+            <article class="card_vendas-dash3">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Pedidos Bloqueados</p>
                     <h3 class="card-titulo2-resumo red">
@@ -93,7 +93,7 @@
                     <p class="card-titulo1-resumo subtitulo">últimos 30 dias</p>
                 </div>
             </article>
-            <article class="card_vendas-resumo2">
+            <article class="card_vendas-dash4">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Carregamentos em Aberto</p>
                     <h3 class="card-titulo2-resumo">
@@ -112,7 +112,7 @@
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo3">
+            <article class="card_vendas-dash5">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Carregamentos +10 dias</p>
                     <h3 class="card-titulo2-resumo">
@@ -133,7 +133,7 @@
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo4 greenback">
+            <article class="card_vendas-dash6 greenback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>                    
                     <h3 class="card-titulo2-resumo bottom">
@@ -162,7 +162,7 @@
                     <p class="card-titulo1-resumo">Últimos 12 meses +30dias</p>
                 </div>
             </article>
-            <article class="card_vendas-resumo5 yellowback">
+            <article class="card_vendas-dash7 yellowback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>
                     <h3 class="card-titulo2-resumo bottom">
@@ -191,7 +191,7 @@
                     <p class="card-titulo1-resumo">Total +60dias</p>
                 </div>
             </article>
-            <article class="card_vendas-resumo6 redback">
+            <article class="card_vendas-dash8 redback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">I N A D I M P L Ê N C I A</p>
                     <h3 class="card-titulo2-resumo bottom">
