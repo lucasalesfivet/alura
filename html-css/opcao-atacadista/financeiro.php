@@ -31,7 +31,7 @@
         <img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
         <h3 class="menu-lateral__titulo">OPCentral</h3>
         <a href="home.php" class="menu-lateral__link">Início</a>
-        <a href="vendas-resumo.php" class="menu-lateral__link">Vendas</a>
+        <a href="vendas.php" class="menu-lateral__link">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link menu-lateral__link--ativo">Financeiro</a>
         <a href="logistica.php" class="menu-lateral__link">Logística</a>
     </nav>

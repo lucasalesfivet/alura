@@ -1,3 +1,17 @@
+<?php 
+
+session_start();
+
+    // se usuario nao registrado, redireciona p/ validacao
+
+    if(!isset($_SESSION['usu']))
+
+    header("Location: index.php?op=err"); 
+
+include 'connect/conexao.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,10 +37,10 @@
     <nav class="menu-lateral">
         <img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
         <h3 class="menu-lateral__titulo">Diretoria</h3>
-        <a href="home.html" class="menu-lateral__link">Início</a>
-        <a href="vendas.html" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
+        <a href="home.php" class="menu-lateral__link">Início</a>
+        <a href="vendas.php" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link">Financeiro</a>
-        <a href="logistica.html" class="menu-lateral__link">Logística</a>
+        <a href="logistica.php" class="menu-lateral__link">Logística</a>
     </nav>
 
     <main class="principal">
@@ -44,7 +58,7 @@
             </div>
             <div class="card_vendas-botao-dash">
                 <div class="card_vendas-botao">
-                    <a href="#" class="card_vendas-botao-dash botao_resumo">Dashboard</a>
+                    <a href="vendas-dashboard.php" class="card_vendas-botao-dash botao_resumo">Dashboard</a>
                 </div>
             </div>
     </main>

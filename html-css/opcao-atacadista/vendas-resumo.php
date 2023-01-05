@@ -45,14 +45,14 @@ include 'connect/conexao.php';
         <img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
         <h3 class="menu-lateral__titulo">OPCentral</h3>
         <a href="home.php" class="menu-lateral__link">Início</a>
-        <a href="vendas-resumo.php" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
+        <a href="vendas.php" class="menu-lateral__link menu-lateral__link--ativo">Vendas</a>
         <a href="financeiro.php" class="menu-lateral__link">Financeiro</a>
         <a href="logistica.php" class="menu-lateral__link">Logística</a>
     </nav>
 
     <main class="principal">
         <div class="quadro-resumo">
-        <article class="card_vendas-resumo7">
+        <article class="card_vendas-atual1">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Pedidos Feitos Hoje</p>
                     <h3 class="card-titulo2-resumohoje red">
@@ -70,7 +70,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo8">
+            <article class="card_vendas-atual2">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Pedidos Faturados Hoje</p>
                     <h3 class="card-titulo2-resumohoje red">
@@ -88,69 +88,16 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo1">
+            <article class="card_vendas-atual3">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Total de Pedidos</p>
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2023' AND '31-jan-2023' and codcob <> 'BNF'");
-
-                            $stid = oci_parse($conexao, $sql);
-                            $execute = oci_execute($stid);
-
-                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-                                // Use the uppercase column names for the associative array indices
-                                echo $row['NUMNOTA'];
-                            }
-                        ?>
-                    </h3>
-                    <p class="card-titulo1-resumo subtitulo">mês atual</p>
-                </div>
-            </article>
-            <article class="card_vendas-resumo2">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Total de Pedidos</p>
-                    <h3 class="card-titulo2-resumo">
-                        <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-dez-2022' AND '31-dez-2022' and codcob <> 'BNF'");
-
-                            $stid = oci_parse($conexao, $sql);
-                            $execute = oci_execute($stid);
-
-                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-                                // Use the uppercase column names for the associative array indices
-                                echo $row['NUMNOTA'];
-                            }
-                        ?>
-                    </h3>
-                    <p class="card-titulo1-resumo subtitulo">mês anterior</p>
-                </div>
-            </article>
-            <article class="card_vendas-resumo3">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Total de Pedidos</p>
-                    <h3 class="card-titulo2-resumo">
-                        <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2022' AND '31-jan-2022' and codcob <> 'BNF'");
-
-                            $stid = oci_parse($conexao, $sql);
-                            $execute = oci_execute($stid);
-
-                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-                                // Use the uppercase column names for the associative array indices
-                                echo $row['NUMNOTA'];
-                            }
-                        ?>
-                    </h3>
-                    <p class="card-titulo1-resumo subtitulo">mês atual/ano anterior</p>
-                </div>
-            </article>
-            <article class="card_vendas-resumo4">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento</p>
-                    <h3 class="card-titulo2-resumo">
-                        <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2023' and '31-jan-2023' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 50
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -161,15 +108,18 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
-                    <p class="card-titulo1-resumo subtitulo">mês atual</p>
                 </div>
             </article>
-            <article class="card_vendas-resumo5">
+            <article class="card_vendas-atual4">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento</p>
+                    <p class="card-titulo1-resumo">Valor de Venda Ontem</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-dez-2022' and '31-dez-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc((SYSDATE)-1)
+                            and codsupervisor = 50
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -180,15 +130,18 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
-                    <p class="card-titulo1-resumo subtitulo">mês anterior</p>
                 </div>
             </article>
-            <article class="card_vendas-resumo6">
+            <article class="card_vendas-atual5">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Faturamento</p>
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
-                        <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2022' and '31-jan-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 100
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -199,7 +152,177 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
-                    <p class="card-titulo1-resumo subtitulo">mês atual/ano anterior</p>
+                    <p class="card-titulo1-resumo subtitulo">SUP100</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual6">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 200
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP200</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual7">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 300
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP300</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual8">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 400
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP400</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual9">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 500
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP500</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual10">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 600
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP600</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual11">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 700
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP700</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual12">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Atual</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc(SYSDATE)
+                            and codsupervisor = 800
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP800</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual13">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">undefined</p>
+                    <h3 class="card-titulo2-resumo">
+                   
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo"></p>
                 </div>
             </article>
             
