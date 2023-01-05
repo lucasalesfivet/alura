@@ -88,7 +88,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-atual3">
+            <article class="card_vendas-atual3 redback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
@@ -110,10 +110,10 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">Total</p>
                 </div>
             </article>
-            <article class="card_vendas-atual4 greenback">
+            <article class="card_vendas-atual4">
                 <div class="card-texto-resumo">
                 <p class="card-titulo1-resumo">Valor de Venda Atual</p>
-                    <h3 class="card-titulo2-resumo">
+                    <h3 class="card-titulo2-resumo red">
                         <?php
                             $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
                             where data = trunc(SYSDATE)
@@ -156,7 +156,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP100</p>
                 </div>
             </article>
-            <article class="card_vendas-atual5">
+            <article class="card_vendas-atual5 redback">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Ontem</p>
                     <h3 class="card-titulo2-resumo">
@@ -178,10 +178,10 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">Total</p>
                 </div>
             </article>
-            <article class="card_vendas-atual6 greenback">
+            <article class="card_vendas-atual6">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Ontem</p>
-                    <h3 class="card-titulo2-resumo">
+                    <h3 class="card-titulo2-resumo red">
                     <?php
                             $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
                             where data = trunc((SYSDATE)-1)
