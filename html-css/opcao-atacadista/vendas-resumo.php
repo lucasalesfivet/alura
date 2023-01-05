@@ -95,7 +95,6 @@ include 'connect/conexao.php';
                         <?php
                             $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
                             where data = trunc(SYSDATE)
-                            and codsupervisor = 50
                             and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
                             pcpedc where rownum = 1");
 
@@ -108,15 +107,16 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
+                    <p class="card-titulo1-resumo subtitulo">Total</p>
                 </div>
             </article>
-            <article class="card_vendas-atual4">
+            <article class="card_vendas-atual4 greenback">
                 <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">Valor de Venda Ontem</p>
+                <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
-                    <?php
+                        <?php
                             $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
-                            where data = trunc((SYSDATE)-1)
+                            where data = trunc(SYSDATE)
                             and codsupervisor = 50
                             and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
                             pcpedc where rownum = 1");
@@ -130,10 +130,11 @@ include 'connect/conexao.php';
                             }
                         ?>
                     </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP50</p>
                 </div>
             </article>
-            <article class="card_vendas-atual5">
-                <div class="card-texto-resumo">
+            <article class="card_vendas-atual14">
+            <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
@@ -155,8 +156,53 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP100</p>
                 </div>
             </article>
-            <article class="card_vendas-atual6">
+            <article class="card_vendas-atual5">
                 <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Ontem</p>
+                    <h3 class="card-titulo2-resumo">
+                        <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc((SYSDATE)-1)
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">Total</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual6 greenback">
+                <div class="card-texto-resumo">
+                    <p class="card-titulo1-resumo">Valor de Venda Ontem</p>
+                    <h3 class="card-titulo2-resumo">
+                    <?php
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+                            where data = trunc((SYSDATE)-1)
+                            and codsupervisor = 50
+                            and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
+                            pcpedc where rownum = 1");
+
+                            $stid = oci_parse($conexao, $sql);
+                            $execute = oci_execute($stid);
+
+                            while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                // Use the uppercase column names for the associative array indices
+                                echo 'R$'.$row['VALOR'];
+                            }
+                        ?>
+                    </h3>
+                    <p class="card-titulo1-resumo subtitulo">SUP50</p>
+                </div>
+            </article>
+            <article class="card_vendas-atual7">
+            <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
@@ -178,8 +224,8 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP200</p>
                 </div>
             </article>
-            <article class="card_vendas-atual7">
-                <div class="card-texto-resumo">
+            <article class="card_vendas-atual8">
+            <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
@@ -201,8 +247,8 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP300</p>
                 </div>
             </article>
-            <article class="card_vendas-atual8">
-                <div class="card-texto-resumo">
+            <article class="card_vendas-atual9">
+            <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
@@ -224,8 +270,8 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP400</p>
                 </div>
             </article>
-            <article class="card_vendas-atual9">
-                <div class="card-texto-resumo">
+            <article class="card_vendas-atual10">
+            <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
@@ -247,8 +293,8 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP500</p>
                 </div>
             </article>
-            <article class="card_vendas-atual10">
-                <div class="card-texto-resumo">
+            <article class="card_vendas-atual11">
+            <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
@@ -270,7 +316,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP600</p>
                 </div>
             </article>
-            <article class="card_vendas-atual11">
+            <article class="card_vendas-atual12">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
@@ -293,7 +339,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo subtitulo">SUP700</p>
                 </div>
             </article>
-            <article class="card_vendas-atual12">
+            <article class="card_vendas-atual13">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Valor de Venda Atual</p>
                     <h3 class="card-titulo2-resumo">
@@ -314,15 +360,6 @@ include 'connect/conexao.php';
                         ?>
                     </h3>
                     <p class="card-titulo1-resumo subtitulo">SUP800</p>
-                </div>
-            </article>
-            <article class="card_vendas-atual13">
-                <div class="card-texto-resumo">
-                    <p class="card-titulo1-resumo">undefined</p>
-                    <h3 class="card-titulo2-resumo">
-                   
-                    </h3>
-                    <p class="card-titulo1-resumo subtitulo"></p>
                 </div>
             </article>
             
