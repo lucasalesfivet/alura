@@ -2,13 +2,13 @@
 
 require '../config.php';
 require '../src/Artigo.php';
+require '../src/redireciona.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artigo = new Artigo($mysql);
     $artigo->adicionarArtigo($_POST['titulo'], $_POST['conteudo']);
 
-    header('Location: index.php');
-    die();
+    redireciona('index.php');
 }
 
 ?>
