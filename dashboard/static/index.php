@@ -1,31 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
 	<?php
-	include "header.php";
-	?>
-</head>
+        include 'header.php';
+    ?>
 
 <body>
 	<div class="wrapper">
-		<?php
-		include "menu.php";
-		?>
+		<?php include 'menu.php'; ?>
 
 		<div class="main">
-			<?php
-			include "topo.php";
-			?>
+            <?php 
+                include 'topo.php'; 
+            ?>
 
-			<?php
-			include "corpo.php";
-			?>
+			<?php include 'corpo.php'; ?>
 
 			<footer class="footer">
-				<?php
-				include "footer.php";
-				?>
+				<?php include 'footer.php' ?>
 			</footer>
 		</div>
 	</div>
