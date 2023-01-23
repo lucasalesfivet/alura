@@ -44,7 +44,7 @@ include 'connect/conexao.php';
 
     <main class="principal">
         <div class="quadro-resumo">
-            <article class="card_vendas-resumo7">
+            <article class="card_vendas-dash1">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Caminhões em Rota</p>
                     <h3 class="card-titulo2-resumohoje red">
@@ -74,7 +74,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo8">
+            <article class="card_vendas-dash2">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumohoje">Caminhões Livres</p>
                     <h3 class="card-titulo2-resumohoje red">
@@ -104,7 +104,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo1">
+            <article class="card_vendas-dash3">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Palmas/Maraba</p>
                     <h3 class="card-titulo2-resumo">
@@ -145,7 +145,7 @@ include 'connect/conexao.php';
                     </p>
                 </div>
             </article>
-            <article class="card_vendas-resumo2">
+            <article class="card_vendas-dash4">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Posse/Goiás Velho</p>
                     <h3 class="card-titulo2-resumo">
@@ -186,7 +186,7 @@ include 'connect/conexao.php';
                     </p>
                 </div>
             </article>
-            <article class="card_vendas-resumo3">
+            <article class="card_vendas-dash5">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Teste3</p>
                     <h3 class="card-titulo2-resumo">
@@ -194,7 +194,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo4">
+            <article class="card_vendas-dash6">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Teste4</p>
                     <h3 class="card-titulo2-resumo">
@@ -202,7 +202,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo5">
+            <article class="card_vendas-dash7">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Teste5</p>
                     <h3 class="card-titulo2-resumo">
@@ -210,7 +210,7 @@ include 'connect/conexao.php';
                     </h3>
                 </div>
             </article>
-            <article class="card_vendas-resumo6">
+            <article class="card_vendas-dash8">
                 <div class="card-texto-resumo">
                     <p class="card-titulo1-resumo">Teste6</p>
                     <h3 class="card-titulo2-resumo">
