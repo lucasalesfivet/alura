@@ -93,7 +93,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2023' AND '31-jan-2023' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-fev-2023' AND '28-fev-2023' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -112,7 +112,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-dez-2022' AND '31-dez-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2022' AND '31-jan-2022' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -131,7 +131,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Total de Pedidos</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-jan-2022' AND '31-jan-2022' and codcob <> 'BNF'");
+                            $sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat BETWEEN '01-fev-2022' AND '28-fev-2022' and codcob <> 'BNF'");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -150,7 +150,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Faturamento</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2023' and '31-jan-2023' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-fev-2023' and '28-fev-2023' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -169,7 +169,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Faturamento</p>
                     <h3 class="card-titulo2-resumo">
                     <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-dez-2022' and '31-dez-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2022' and '31-jan-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);
@@ -188,7 +188,7 @@ include 'connect/conexao.php';
                     <p class="card-titulo1-resumo">Faturamento</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-jan-2022' and '31-jan-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
+                            $sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FATANTERIOR FROM pcnfsaid where dtfat between '01-fev-2022' and '28-fev-2022' and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM PCNFSAID where rownum = 1");
 
                             $stid = oci_parse($conexao, $sql);
                             $execute = oci_execute($stid);

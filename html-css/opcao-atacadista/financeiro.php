@@ -98,7 +98,7 @@
                     <p class="card-titulo1-resumo">Carregamentos em Aberto</p>
                     <h3 class="card-titulo2-resumo">
                         <?php
-                            $sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-dez-2022' and (trunc(SYSDATE))
+                            $sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-jan-2023' and (trunc(SYSDATE))
                             and dtfecha is null");
 
                             $stid = oci_parse($conexao, $sql);
@@ -118,7 +118,7 @@
                     <h3 class="card-titulo2-resumo">
                     <?php
                             $sql = ("SELECT count(*) as TOT_CARREG_DEZ FROM pccarreg
-                            WHERE dtfat between '01-jan-2022' and (trunc(SYSDATE)-10)
+                            WHERE dtfat between '01-fev-2023' and (trunc(SYSDATE)-10)
                             and totpeso <> 0
                             and dtfecha is null");
 
@@ -200,12 +200,12 @@
                            FROM
                              (SELECT SUM (valor)VLINADIPLENCIA
                              FROM pcprest
-                             WHERE dtvenc BETWEEN '01-nov-2022' AND '30-nov-2022'
+                             WHERE dtvenc BETWEEN '01-dez-2022' AND '31-dez-2022'
                              AND dtpag IS NULL
                              ) INAD,
                              (SELECT SUM (valor)VLPREVISOT
                              FROM pcprest
-                             WHERE dtvenc BETWEEN '01-nov-2022' AND '30-nov-2022'
+                             WHERE dtvenc BETWEEN '01-dez-2022' AND '31-dez-2022'
                              AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
 
                             $stid = oci_parse($conexao, $sql);
