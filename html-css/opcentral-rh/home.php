@@ -16,36 +16,40 @@ if (!isset($_SESSION['usu']))
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
+	<meta name="description" content="Central &amp; Opção Atacadista">
+	<meta name="author" content="Lucas Sales">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
+	<script src="https://kit.fontawesome.com/1f76937ee1.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="icon" href="img/logoarcos.png" />
+	<link rel="shortcut icon" href="img/logoarcos.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
-	<title>OPCentral</title>
+	<link rel="canonical" href="https://devla.com.br" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+	<title>Opcentral</title>
 
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <body>
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
+			<img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
 				<a class="sidebar-brand" href="home.php">
 					<span class="align-middle">OPCentral</span>
 				</a>
 
 				<ul class="sidebar-nav">
+					
 					<li class="sidebar-header">
 						Módulo RH
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="home.php">
 							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Início</span>
 						</a>
 					</li>
@@ -95,117 +99,192 @@ if (!isset($_SESSION['usu']))
 
 					<h1 class="h3 mb-3"><strong>RH</strong> Início</h1>
 
+
 					<div class="row">
-						<div class="col-xl-6 col-xxl-5 d-flex">
-							<div class="w-100">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Agendados</h5>
-													</div>
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="users"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">15</h1>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Agendados</h5>
+										</div>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="users"></i>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-6">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Hoje</h5>
-													</div>
-
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="users"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">10</h1>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Atendidos</h5>
-													</div>
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="users"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">7</h1>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Cancelados</h5>
-													</div>
-
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="users"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">3</h1>
-											</div>
-										</div>
-									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										include 'connect/conexao.php';
+										$sql = "SELECT COUNT(id) as total FROM opcagendcand";
+										$busca = mysqli_query($conexaoopc, $sql);
+										while ($dados = mysqli_fetch_array($busca)) {;
+											$agendados = $dados['total'];
+											echo $agendados;
+										}
+										?>
+									</h1>
 								</div>
 							</div>
 						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Hoje</h5>
+										</div>
 
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="users"></i>
+											</div>
+										</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = "SELECT COUNT(id) as totalhoje FROM opcagendcand  WHERE data = curdate()";
+										$busca = mysqli_query($conexaoopc, $sql);
+										while ($dados = mysqli_fetch_array($busca)) {;
+											$hoje = $dados['totalhoje'];
+											echo $hoje;
+										}
+										?>
+									</h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Atendidos</h5>
+										</div>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="users"></i>
+											</div>
+										</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = "SELECT COUNT(id) as atendidoshoje FROM opcagendcand  WHERE dtatendido = sysdate()";
+										$busca = mysqli_query($conexaoopc, $sql);
+										while ($dados = mysqli_fetch_array($busca)) {;
+											$atendhoje = $dados['atendidoshoje'];
+											echo $atendhoje;
+										}
+										?>
+									</h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Cancelados</h5>
+										</div>
+
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="users"></i>
+											</div>
+										</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = "SELECT COUNT(id) as canceladoshoje FROM opcagendcand  WHERE dtcancelado = sysdate()";
+										$busca = mysqli_query($conexaoopc, $sql);
+										while ($dados = mysqli_fetch_array($busca)) {;
+											$cancelhoje = $dados['canceladoshoje'];
+											echo $cancelhoje;
+										}
+										?>
+									</h1>
+								</div>
+							</div>
+						</div>
 					</div>
+
 
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-							<h5 class="card-title">Candidatos confirmados para hoje</h5>
+								<h5 class="card-title">Candidatos confirmados para hoje</h5>
 							</div>
 							<div class="card-body">
 								<table class="table">
 									<thead>
 										<tr>
-											<th scope="col">Id</th>
 											<th scope="col">Nome</th>
 											<th scope="col">E-Mail</th>
 											<th scope="col">Telefone</th>
-											<th scope="col">Estado</th>
+											<th scope="col">Hora</th>
+											<th scope="col">Ações</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+										include 'connect/conexao.php';
+										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null";
+										$busca = mysqli_query($conexaoopc, $sql);
+										while ($dados = mysqli_fetch_array($busca)) {;
+											$id = $dados['id'];
+											$nome = $dados['nome'];
+											$mail = $dados['email'];
+											$telefone = $dados['telefone'];
+											$hora = $dados['hora'];
+										?>
+											<tr>
+												<td><?php echo $nome ?></td>
+												<td><?php echo $mail ?></td>
+												<td><?php echo $telefone ?></td>
+												<td><?php echo $hora ?></td>
+												<td>
+													<a class="btn btn-success" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
+														<i class="fa-solid fa-check"></i>&nbsp;
+													</a>
+													<a class="btn btn-danger" style="color:#fff" href="cancelarAtendimento.php?id=<?php echo $id ?>" role="button">
+															<i class="fa-solid fa-xmark"></i>
+														</a>
+												</td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
+								<h5 class="card-title">Candidatos pendentes</h5>
+							</div>
+							<div class="card-body">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col">Nome</th>
+											<th scope="col">E-Mail</th>
+											<th scope="col">Telefone</th>
+											<th scope="col">Data</th>
 											<th scope="col">Ações</th>
 										</tr>
 									</thead>
 									<tbody>
 
 										<tr>
-
-											<td>1</td>
-											<td>Lucas</td>
-											<td>lucas@email.com</td>
-											<td>61987654321</td>
-											<td>DF</td>
-											<td>P | F</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>

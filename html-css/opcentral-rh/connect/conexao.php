@@ -21,3 +21,16 @@ if ($ora_conexao = oci_connect($ora_user, $ora_senha, $ora_bd)){
     echo "Não conectado!";
 }*/
 ?>
+
+<?php
+
+
+$server = 'localhost';
+$usuario = 'root';
+$senha = '';
+$base = 'opcentral';
+
+$conexaoopc = mysqli_connect($server,$usuario,$senha,$base);
+
+
+?>

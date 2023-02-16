@@ -16,25 +16,28 @@ if (!isset($_SESSION['usu']))
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="AdminKit">
+	<meta name="description" content="Central &amp; Opção Atacadista">
+	<meta name="author" content="Lucas Sales">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
+	<script src="https://kit.fontawesome.com/1f76937ee1.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="icon" href="img/logoarcos.png" />
+	<link rel="shortcut icon" href="img/logoarcos.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
-	<title>OPCentral</title>
+	<link rel="canonical" href="https://devla.com.br" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
+	<title>Opcentral</title>
 
 	<link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <body>
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
+			<img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
 				<a class="sidebar-brand" href="home.php">
 					<span class="align-middle">OPCentral</span>
 				</a>
@@ -94,44 +97,61 @@ if (!isset($_SESSION['usu']))
 				<div class="container-fluid p-0">
 
 					<h1 class="h3 mb-3">Painel de Candidatos</h1>
-
-					<div class="col-12">
-						<div class="card">
-							<div class="card-header">
-								<h5 class="card-title">Agendados</h5>
-							</div>
-							<div class="card-body">
-								<table class="table">
-									<thead>
-										<tr>
-											<th scope="col">Id</th>
-											<th scope="col">Nome</th>
-											<th scope="col">E-Mail</th>
-											<th scope="col">Telefone</th>
-											<th scope="col">Estado</th>
-											<th scope="col">Ações</th>
-										</tr>
-									</thead>
-									<tbody>
-
-										<tr>
-
-											<td>1</td>
-											<td>Lucas</td>
-											<td>lucas@email.com</td>
-											<td>61987654321</td>
-											<td>DF</td>
-											<td>P | F</td>
-										</tr>
-
-									</tbody>
-								</table>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title">Agendados</h5>
+								</div>
+								<div class="card-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th scope="col">Nome</th>
+												<th scope="col">E-Mail</th>
+												<th scope="col">Telefone</th>
+												<th scope="col">Data</th>
+												<th scope="col">hora</th>
+												<th scope="col">Ações</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											include 'connect/conexao.php';
+											$sql = "SELECT * FROM opcagendcand WHERE dtcancelado is null and dtatendido is null and dtconfirmado is null";
+											$busca = mysqli_query($conexaoopc, $sql);
+											while ($dados = mysqli_fetch_array($busca)) {;
+												$id = $dados['id'];
+												$nome = $dados['nome'];
+												$mail = $dados['email'];
+												$telefone = $dados['telefone'];
+												$data = $dados['data'];
+												$hora = $dados['hora'];
+											?>
+												<tr>
+													<td><?php echo $nome ?></td>
+													<td><?php echo $mail ?></td>
+													<td><?php echo $telefone ?></td>
+													<td><?php echo $data ?></td>
+													<td><?php echo $hora ?></td>
+													<td>
+														<a class="btn btn-success" style="color:#fff" href="confirmarAgendamento.php?id=<?php echo $id ?>" role="button">
+															<i class="fa-solid fa-check"></i>&nbsp;
+														</a>
+														<a class="btn btn-danger" style="color:#fff" href="cancelarAgendamento.php?id=<?php echo $id ?>" role="button">
+															<i class="fa-solid fa-xmark"></i>
+														</a>
+													</td>
+												</tr>
+											<?php } ?>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
-
 						<div class="col-6">
 							<div class="card">
 								<div class="card-header">
@@ -141,21 +161,32 @@ if (!isset($_SESSION['usu']))
 									<table class="table">
 										<thead>
 											<tr>
-												<th scope="col">Id</th>
 												<th scope="col">Nome</th>
+												<th scope="col">Cargo</th>
 												<th scope="col">Ações</th>
 
 											</tr>
 										</thead>
 										<tbody>
-
-											<tr>
-
-												<td>1</td>
-												<td>Lucas</td>
-												<td>Ver +</td>
-
-											</tr>
+											<?php
+											include 'connect/conexao.php';
+											$sql = "SELECT * FROM opcagendcand WHERE dtatendido is not null";
+											$busca = mysqli_query($conexaoopc, $sql);
+											while ($dados = mysqli_fetch_array($busca)) {;
+												$id = $dados['id'];
+												$nome = $dados['nome'];
+												$cargo = $dados['cargo'];
+											?>
+												<tr>
+													<td><?php echo $nome ?></td>
+													<td><?php echo $cargo ?></td>
+													<td>
+														<button type="button" class="btn btn-alert" href="home.php">
+															<i class="fa-solid fa-magnifying-glass-plus"></i>
+														</button>
+													</td>
+												</tr>
+											<?php } ?>
 
 										</tbody>
 									</table>
@@ -179,14 +210,25 @@ if (!isset($_SESSION['usu']))
 											</tr>
 										</thead>
 										<tbody>
-
-											<tr>
-
-												<td>1</td>
-												<td>Lucas</td>
-												<td>Ver +</td>
-
-											</tr>
+											<?php
+											include 'connect/conexao.php';
+											$sql = "SELECT * FROM opcagendcand WHERE dtcancelado is not null";
+											$busca = mysqli_query($conexaoopc, $sql);
+											while ($dados = mysqli_fetch_array($busca)) {;
+												$id = $dados['id'];
+												$nome = $dados['nome'];
+												$cargo = $dados['cargo'];
+											?>
+												<tr>
+													<td><?php echo $nome ?></td>
+													<td><?php echo $cargo ?></td>
+													<td>
+														<button type="button" class="btn btn-alert" href="home.php">
+															<i class="fa-solid fa-magnifying-glass-plus"></i>
+														</button>
+													</td>
+												</tr>
+											<?php } ?>
 
 										</tbody>
 									</table>
@@ -221,229 +263,116 @@ if (!isset($_SESSION['usu']))
 	</div>
 
 	<script src="js/app.js"></script>
-
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-			var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-			gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-			gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-			// Line chart
-			new Chart(document.getElementById("chartjs-dashboard-line"), {
-				type: "line",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "Sales ($)",
-						fill: true,
-						backgroundColor: gradient,
-						borderColor: window.theme.primary,
-						data: [
-							2115,
-							1562,
-							1584,
-							1892,
-							1587,
-							1923,
-							2566,
-							2448,
-							2805,
-							3438,
-							2917,
-							3327
-						]
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					tooltips: {
-						intersect: false
-					},
-					hover: {
-						intersect: true
-					},
-					plugins: {
-						filler: {
-							propagate: false
-						}
-					},
-					scales: {
-						xAxes: [{
-							reverse: true,
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}],
-						yAxes: [{
-							ticks: {
-								stepSize: 1000
-							},
-							display: true,
-							borderDash: [3, 3],
-							gridLines: {
-								color: "rgba(0,0,0,0.0)"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Pie chart
-			new Chart(document.getElementById("chartjs-dashboard-pie"), {
-				type: "pie",
-				data: {
-					labels: ["Chrome", "Firefox", "IE"],
-					datasets: [{
-						data: [4306, 3801, 1689],
-						backgroundColor: [
-							window.theme.primary,
-							window.theme.warning,
-							window.theme.danger
-						],
-						borderWidth: 5
-					}]
-				},
-				options: {
-					responsive: !window.MSInputMethodContext,
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					cutoutPercentage: 75
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			// Bar chart
-			new Chart(document.getElementById("chartjs-dashboard-bar"), {
-				type: "bar",
-				data: {
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-					datasets: [{
-						label: "This year",
-						backgroundColor: window.theme.primary,
-						borderColor: window.theme.primary,
-						hoverBackgroundColor: window.theme.primary,
-						hoverBorderColor: window.theme.primary,
-						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-						barPercentage: .75,
-						categoryPercentage: .5
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					legend: {
-						display: false
-					},
-					scales: {
-						yAxes: [{
-							gridLines: {
-								display: false
-							},
-							stacked: false,
-							ticks: {
-								stepSize: 20
-							}
-						}],
-						xAxes: [{
-							stacked: false,
-							gridLines: {
-								color: "transparent"
-							}
-						}]
-					}
-				}
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var markers = [{
-					coords: [31.230391, 121.473701],
-					name: "Shanghai"
-				},
-				{
-					coords: [28.704060, 77.102493],
-					name: "Delhi"
-				},
-				{
-					coords: [6.524379, 3.379206],
-					name: "Lagos"
-				},
-				{
-					coords: [35.689487, 139.691711],
-					name: "Tokyo"
-				},
-				{
-					coords: [23.129110, 113.264381],
-					name: "Guangzhou"
-				},
-				{
-					coords: [40.7127837, -74.0059413],
-					name: "New York"
-				},
-				{
-					coords: [34.052235, -118.243683],
-					name: "Los Angeles"
-				},
-				{
-					coords: [41.878113, -87.629799],
-					name: "Chicago"
-				},
-				{
-					coords: [51.507351, -0.127758],
-					name: "London"
-				},
-				{
-					coords: [40.416775, -3.703790],
-					name: "Madrid "
-				}
-			];
-			var map = new jsVectorMap({
-				map: "world",
-				selector: "#world_map",
-				zoomButtons: true,
-				markers: markers,
-				markerStyle: {
-					initial: {
-						r: 9,
-						strokeWidth: 7,
-						stokeOpacity: .4,
-						fill: window.theme.primary
-					},
-					hover: {
-						fill: window.theme.primary,
-						stroke: window.theme.primary
-					}
-				},
-				zoomOnScroll: false
-			});
-			window.addEventListener("resize", () => {
-				map.updateSize();
-			});
-		});
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
-			var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
-			document.getElementById("datetimepicker-dashboard").flatpickr({
-				inline: true,
-				prevArrow: "<span title=\"Previous month\">&laquo;</span>",
-				nextArrow: "<span title=\"Next month\">&raquo;</span>",
-				defaultDate: defaultDate
-			});
-		});
-	</script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+<script>
+	function viaCEP() {
+
+		var numCep = $("#cep").val();
+
+		var url = "https://viacep.com.br/ws/" + numCep + "/json";
+
+		$.ajax({
+			url: url,
+			type: "get",
+			dataType: "json",
+
+			success: function(dados) {
+				console.log(dados);
+				$("#uf").val(dados.uf);
+				$("#cidade").val(dados.localidade);
+				$("#logradouro").val(dados.logradouro);
+				$("#bairro").val(dados.bairro);
+			}
+		})
+
+
+	}
+</script>
+<!-- Importação do Jquery Mask -->
+<!-- include da importação da mascara dos inputs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+<script type="text/javascript">
+	$("#telefone, #celular").mask("(00) 00000-0000"); //000 000 0000 eua
+	$('.date').mask('00/00/0000');
+	$('.time').mask('00:00:00');
+	$('.date_time').mask('00/00/0000 00:00:00');
+	$('.cep').mask('00000-000');
+	$('.phone').mask('0000-0000');
+	$('.phone_with_ddd').mask('(00) 0000-0000');
+	$('.phone_us').mask('(000) 000-0000');
+	$('.mixed').mask('AAA 000-S0S');
+	$('.cpf').mask('000.000.000-00', {
+		reverse: true
+	});
+	$('.cnpj').mask('00.000.000/0000-00', {
+		reverse: true
+	});
+	$('.money').mask('000.000.000.000.000,00', {
+		reverse: true
+	});
+	$('.money2').mask("#.##0,00", {
+		reverse: true
+	});
+	$('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+		translation: {
+			'Z': {
+				pattern: /[0-9]/,
+				optional: true
+			}
+		}
+	});
+	$('.ip_address').mask('099.099.099.099');
+	$('.percent').mask('##0,00%', {
+		reverse: true
+	});
+	$('.clear-if-not-match').mask("00/00/0000", {
+		clearIfNotMatch: true
+	});
+	$('.placeholder').mask("00/00/0000", {
+		placeholder: "__/__/____"
+	});
+	$('.fallback').mask("00r00r0000", {
+		translation: {
+			'r': {
+				pattern: /[\/]/,
+				fallback: '/'
+			},
+			placeholder: "__/__/____"
+		}
+	});
+	$('.selectonfocus').mask("00/00/0000", {
+		selectOnFocus: true
+	});
+</script>
+
+
+<script type="text/javascript">
+	$("#cpfcnpj").keydown(function() {
+		try {
+			$("#cpfcnpj").unmask();
+		} catch (e) {}
+
+		var tamanho = $("#cpfcnpj").val().length;
+
+		if (tamanho < 11) {
+			$("#cpfcnpj").mask("999.999.999-99");
+		} else {
+			$("#cpfcnpj").mask("99.999.999/9999-99");
+		}
+
+		// ajustando foco
+		var elem = this;
+		setTimeout(function() {
+			// mudo a posição do seletor
+			elem.selectionStart = elem.selectionEnd = 10000;
+		}, 0);
+		// reaplico o valor para mudar o foco
+		var currentValue = $(this).val();
+		$(this).val('');
+		$(this).val(currentValue);
+	});
+</script>
