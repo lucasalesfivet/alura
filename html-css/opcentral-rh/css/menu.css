@@ -1,0 +1,92 @@
+:root {
+    --cor-de-fundo: #ebecee;
+    --cor-do-topo: #FFFFFF;
+    --vermelho: red;
+    --fonte-principal: "Poppins";
+    --cor-do-cartao: #F9F9F9;
+    --cor-do-botao-mouse: #FA8072;
+    --cor-do-botao-clicado: red;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 30px;
+    color: #000000;
+}
+
+#caixa {
+    width: 500px;
+    margin-top: 75px;
+    border: 2px solid #f3f3f3;
+    border-radius: 15px;
+    padding: 10px;
+    background: var(--cor-do-cartao);
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.496);
+}
+
+.img-logo {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+#formulario {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+#formulario-texto {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.botao a {
+    text-decoration: none;
+}
+
+.rodape {
+    color: rgb(176, 176, 176);
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 680px) {
+
+    #caixa {
+        width: 300px;
+        margin-top: 50px;
+        border: none;
+        border-radius: none;
+        padding: 10px;
+        background: transparent;
+        box-shadow: none;
+    }
+    
+    .img-logo {
+        width: 180px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #formulario {
+        width: 250px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #formulario-texto {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .rodape {
+        color: rgb(176, 176, 176);
+        font-size: 12px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+}
