@@ -224,13 +224,13 @@ if (!isset($_SESSION['usu']))
 											<th scope="col">Telefone</th>
 											<th scope="col">Cargo</th>
 											<th scope="col">Hora</th>
-											<th scope="col">Confirmar</th>
+											<th scope="col" align="center">Confirmar</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										include 'connect/conexao.php';
-										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data = curdate()";
+										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data = curdate() order by hora";
 										$busca = mysqli_query($conexaoopc, $sql);
 										while ($dados = mysqli_fetch_array($busca)) {;
 											$id = $dados['id'];
@@ -245,8 +245,11 @@ if (!isset($_SESSION['usu']))
 												<td><?php echo $cargo ?></td>
 												<td><?php echo $hora ?></td>
 												<td>
-													<a class="btn btn-success" title="Confirmar Presença" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
+													<a class="btn btn-success" title="Confirmar" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
 														<i class="fa-solid fa-check"></i>&nbsp;
+													</a>
+													<a class="btn btn-danger" title="Cancelar" style="color:#fff" href="cancelarAtendimento.php?id=<?php echo $id ?>" role="button">
+														<i class="fa-solid fa-xmark"></i>&nbsp;
 													</a>
 												</td>
 											</tr>
@@ -291,7 +294,7 @@ if (!isset($_SESSION['usu']))
 												<td><?php echo $cargo ?></td>
 												<td><?php echo $hora ?></td>
 												<td>
-													<a class="btn btn-success" title="Confirmar Presença" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
+													<a class="btn btn-success" title="Confirmar" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
 														<i class="fa-solid fa-check"></i>&nbsp;
 													</a>
 													<a class="btn btn-danger" title="Cancelar" style="color:#fff" href="cancelarAtendimento.php?id=<?php echo $id ?>" role="button">

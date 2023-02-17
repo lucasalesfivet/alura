@@ -31,6 +31,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $cidade = $dados['cidade'];
     $estado = $dados['estado'];
     $data = $dados['data'];
+    $justificativa = $dados['justificativa'];
 
 ?>
 
@@ -139,15 +140,17 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                         <h6><?php echo $cidade . ' ' . $estado . ' - ' . $cep ?></h6>
                                         <h5 class="card-title">Agendado para </h5>
                                         <h6> <?php echo $data ?></h6>
+                                        <h5 class="card-title">Justificativa </h5>
+                                        <h6> <?php echo $justificativa ?></h6>
                                     </div>
                                 </div>
                                 <a class="btn btn-danger" style="color:#fff" href="candidatos.php" role="button">
                                     <i class="">Voltar</i>&nbsp;
                                 </a>
-                                <a class="btn btn-info" style="color:#fff" href="#" role="button">
+                                <a class="btn btn-info" style="color:#fff" href="justificar.php?id=<?php echo $id ?>" role="button">
                                     <i class="">Justificar</i>&nbsp;
                                 </a>
-                                <a class="btn btn-success" style="color:#fff" href="#" role="button">
+                                <a class="btn btn-success" style="color:#fff" href="reagendar.php?id=<?php echo $id ?>" role="button">
                                     <i class="">Reagendar</i>&nbsp;
                                 </a>
                             </div>

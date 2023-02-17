@@ -98,7 +98,7 @@ if (!isset($_SESSION['usu']))
 					<h1 class="h3 mb-3">Painel de Candidatos</h1>
 					<div class="h3 mb-3" style="text-align: right;">
 						<a class="btn btn-success" title="Ver Todos" style="color:#fff" href="todosCandidatos.php" role="button">
-							<i class="">Ver todos os candidatos</i>&nbsp;
+							<b>Ver todos os candidatos</b>&nbsp;
 						</a>
 					</div>
 
@@ -175,7 +175,7 @@ if (!isset($_SESSION['usu']))
 										<tbody>
 											<?php
 											include 'connect/conexao.php';
-											$sql = "SELECT * FROM opcagendcand WHERE dtatendido is not null";
+											$sql = "SELECT * FROM opcagendcand WHERE dtatendido is not null order by dtatendido desc";
 											$busca = mysqli_query($conexaoopc, $sql);
 											while ($dados = mysqli_fetch_array($busca)) {;
 												$id = $dados['id'];
@@ -186,7 +186,7 @@ if (!isset($_SESSION['usu']))
 													<td><?php echo $nome ?></td>
 													<td><?php echo $cargo ?></td>
 													<td>
-														<a class="btn btn-alert" title="Ver mais" style="color:#c6c6c6" href="verAtendido.php?id=<?php echo $id ?>" role="button">
+														<a class="btn btn-alert" title="Ver mais" style="color: grey" href="verAtendido.php?id=<?php echo $id ?>" role="button">
 															<i class="fa-solid fa-magnifying-glass-plus"></i>
 														</a>
 													</td>
@@ -208,8 +208,8 @@ if (!isset($_SESSION['usu']))
 									<table class="table">
 										<thead>
 											<tr>
-												<th scope="col">Id</th>
 												<th scope="col">Nome</th>
+												<th scope="col">Cargo</th>
 												<th scope="col">Ver +</th>
 
 											</tr>
@@ -217,7 +217,7 @@ if (!isset($_SESSION['usu']))
 										<tbody>
 											<?php
 											include 'connect/conexao.php';
-											$sql = "SELECT * FROM opcagendcand WHERE dtcancelado is not null";
+											$sql = "SELECT * FROM opcagendcand WHERE dtcancelado is not null order by dtcancelado desc";
 											$busca = mysqli_query($conexaoopc, $sql);
 											while ($dados = mysqli_fetch_array($busca)) {;
 												$id = $dados['id'];
@@ -228,7 +228,7 @@ if (!isset($_SESSION['usu']))
 													<td><?php echo $nome ?></td>
 													<td><?php echo $cargo ?></td>
 													<td>
-														<a class="btn btn-alert" title="Ver mais" style="color:#c6c6c6" href="verCancelado.php?id=<?php echo $id ?>" role="button">
+														<a class="btn btn-alert" title="Ver mais" style="color: grey" href="verCancelado.php?id=<?php echo $id ?>" role="button">
 															<i class="fa-solid fa-magnifying-glass-plus"></i>
 														</a>
 													</td>

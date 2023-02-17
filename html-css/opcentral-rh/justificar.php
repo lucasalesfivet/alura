@@ -1,5 +1,14 @@
 <?php
 
+include 'connect/conexao.php';
+
+$id = $_GET['id'];
+//echo $id;
+
+?>
+
+<?php
+
 session_start();
 
 // se usuario nao registrado, redireciona p/ validacao
@@ -53,13 +62,13 @@ if (!isset($_SESSION['usu']))
                         </a>
                     </li>
 
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="candidatos.php">
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">Candidatos</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item active">
                         <a class="sidebar-link" href="agendar.php">
                             <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Cadastrar</span>
                         </a>
@@ -95,76 +104,42 @@ if (!isset($_SESSION['usu']))
 
             <main class="content">
                 <div class="container-fluid p-0">
-                    <h1 class="h3 mb-3">Painel de Candidatos</h1>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nome</th>
-                                                <th scope="col">Telefone</th>
-                                                <th scope="col">Cargo</th>
-                                                <th scope="col">Cadastrado</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Ver +</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            include 'connect/conexao.php';
-                                            $sql = "SELECT * FROM opcagendcand ORDER BY nome";
-                                            $busca = mysqli_query($conexaoopc, $sql);
-                                            while ($dados = mysqli_fetch_array($busca)) {;
-                                                $id = $dados['id'];
-                                                $nome = $dados['nome'];
-                                                $telefone = $dados['telefone'];
-                                                $cargo = $dados['cargo'];
-                                                $data = $dados['data'];
-                                                $dtcancelado = $dados['dtcancelado'];
-                                                $dtatendido = $dados['dtatendido'];
-                                            ?>
-                                                <tr>
-                                                    <td><?php echo $nome ?></td>
-                                                    <td><?php echo $telefone ?></td>
-                                                    <td><?php echo $cargo ?></td>
-                                                    <td><?php echo $data ?></td>
-                                                    <td><?php
-                                                        if (($dtatendido > 1) && ($dtcancelado == 0)) { ?>
-                                                            <class="" style="color: green">Atendido</class>
-                                                        <?php } elseif (($dtatendido == 0) && ($dtcancelado > 1)) { ?>
-                                                            <class="" style="color: #B22222">Cancelado</class=>
-                                                        <?php } else { ?>
-                                                            <class="" style="color: #191970">Agendado</class=>
-                                                        <?php }
-                                                        ?></td>
-                                                    <td>
-                                                        <?php
-                                                        if (($dtatendido > 1) && ($dtcancelado == 0)) { ?>
-                                                            <a class="btn btn-alert" title="Ver mais" style="color: grey" href="verAtendido.php?id=<?php echo $id ?>" role="button">
-                                                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                                            </a> 
-                                                        <?php } elseif (($dtatendido == 0) && ($dtcancelado > 1)) { ?>
-                                                            <a class="btn btn-alert" title="Ver mais" style="color: grey" href="verCancelado.php?id=<?php echo $id ?>" role="button">
-                                                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                                            </a>
-                                                        <?php } else { ?>
-                                                            <a class="btn btn-alert" title="Ver mais" style="color: grey" href="verAgendado.php?id=<?php echo $id ?>" role="button">
-                                                                <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                                            </a>
-                                                        <?php }
-                                                        ?>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    <h1 class="h3 mb-3">Justificar Candidato</h1>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="cadastrarJustificativa.php" enctype='multipart/form-data' method='post'>
+                                    <?php
+                                        $sql = "SELECT * FROM opcagendcand WHERE id = $id";
+                                        $busca = mysqli_query($conexaoopc, $sql);
+                                        while ($dados = mysqli_fetch_array($busca)) {
+                                            
+                                            $nome = $dados['nome'];
+                                            $justificativa = $dados['justificativa'];
+                                    ?>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" id="nome" value="<?php echo $nome ?>" name='nome' maxlength="50" disabled>
+                                        <input type="hidden" class="form-control" id="id" value="<?php echo $id ?>" name='id'>
+                                        
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Justificativa</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $justificativa ?>" name='justificativa' maxlength="50" required autocomplete="off">
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <a class="btn btn-primary" title="voltar" style="color:#fff" href="verCancelado.php?id=<?php echo $id ?>" role="button">
+                                            Voltar
+                                        </a>
+                                        <button type="submit" class="btn btn-success">Salvar</button>
+                                    </div>
+                                    <form>
+                                    <?php } ?>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </main>
 
@@ -190,7 +165,8 @@ if (!isset($_SESSION['usu']))
     </div>
 
     <script src="js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>

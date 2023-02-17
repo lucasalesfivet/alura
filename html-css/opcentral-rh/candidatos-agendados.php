@@ -130,12 +130,13 @@
 											<th scope="col">Telefone</th>
 											<th scope="col">Cargo</th>
 											<th scope="col">Hora</th>
+											<th scope="col">Status</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										include 'connect/conexao.php';
-										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data = curdate()";
+										$sql = "SELECT * FROM opcagendcand WHERE data = curdate() order by hora";
 										$busca = mysqli_query($conexaoopc, $sql);
 										while ($dados = mysqli_fetch_array($busca)) {;
 											$id = $dados['id'];
@@ -143,12 +144,25 @@
 											$telefone = $dados['telefone'];
 											$cargo = $dados['cargo'];
 											$hora = $dados['hora'];
+											$dtcancelado = $dados['dtcancelado'];
+                                            $dtatendido = $dados['dtatendido'];
 										?>
 											<tr>
 												<td><?php echo $nome ?></td>
 												<td><?php echo $telefone ?></td>
 												<td><?php echo $cargo ?></td>
 												<td><?php echo $hora ?></td>
+												<td>
+													<?php
+                                                        if ($dtatendido > 1) { ?>
+                                                            <class="" style="color: green">Atendido</class>
+                                                        <?php } elseif ($dtcancelado > 1) { ?>
+                                                            <class="" style="color: #B22222">Cancelado</class=>
+                                                        <?php } else { ?>
+                                                            <class="" style="color: #191970">Agendado</class=>
+                                                        <?php }
+                                                    ?>
+												</td>
 											</tr>
 										<?php } ?>
 									</tbody>

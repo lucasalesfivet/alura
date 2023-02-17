@@ -150,6 +150,9 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                 <a class="btn btn-success" style="color:#fff" href="#" role="button">
                                     <i class="">Adicionar Informações</i>&nbsp;
                                 </a>
+                                <a class="btn btn-primary" style="color:#fff" href="corrigir.php?id=<?php echo $id ?>" role="button">
+                                    <i class="">Corrigir Atendimento</i>&nbsp;
+                                </a>
                             </div>
                         </div>
                     </div>

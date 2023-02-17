@@ -119,14 +119,14 @@ if (!isset($_SESSION['usu']))
 										<div class="col-8">
 											<div class="mb-3">
 												<label for="exampleFormControlInput1" class="form-label">Cargo</label>
-												<input type="text" class="form-control" name='cargo' id="cargo" required autocomplete="off">
+												<input type="text" class="form-control" name='cargo' id="cargo" required>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-4">
 											<label for="exampleFormControlInput1" class="form-label">CEP</label>
-											<input type="text" class="form-control" id="cep" name='cep' maxlength="8" onkeyup="viaCEP()" required autocomplete="off">
+											<input type="text" class="form-control" id="cep" name='cep' maxlength="8" onkeyup="viaCEP()" autocomplete="off">
 										</div>
 										<div class="col-8">
 											<div class="mb-3">
@@ -149,18 +149,18 @@ if (!isset($_SESSION['usu']))
 									<div class="row">
 										<div class="col-5">
 											<label for="exampleFormControlInput1" class="form-label">Bairro</label>
-											<input type="text" class="form-control" name='bairro' id="bairro" required autocomplete="off">
+											<input type="text" class="form-control" name='bairro' id="bairro" required>
 										</div>
 										<div class="col-5">
 											<div class="mb-3">
 												<label for="exampleFormControlInput1" class="form-label">Cidade</label>
-												<input type="text" class="form-control" name='cidade' id="cidade" required autocomplete="off">
+												<input type="text" class="form-control" name='cidade' id="cidade" required>
 											</div>
 										</div>
 										<div class="col-2">
 											<div class="mb-3">
 												<label for="exampleFormControlInput1" class="form-label">Estado</label>
-												<input type="text" class="form-control" name='uf' maxlength="2" id="uf" required autocomplete="off">
+												<input type="text" class="form-control" name='uf' maxlength="2" id="uf" required>
 											</div>
 										</div>
 									</div>
