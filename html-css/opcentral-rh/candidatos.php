@@ -61,7 +61,7 @@ if (!isset($_SESSION['usu']))
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="agendar.php">
-							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Agendar</span>
+							<i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Cadastrar</span>
 						</a>
 					</li>
 				</ul>
@@ -106,7 +106,7 @@ if (!isset($_SESSION['usu']))
 						<div class="col-12">
 							<div class="card">
 								<div class="card-header">
-									<h5 class="card-title">Agendados</h5>
+									<h5 class="card-title">Cadastrados</h5>
 								</div>
 								<div class="card-body">
 									<table class="table">

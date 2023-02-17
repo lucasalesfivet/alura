@@ -86,7 +86,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
 
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="agendar.php">
-                                <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Agendar</span>
+                                <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Cadastrar</span>
                             </a>
                         </li>
                     </ul>
