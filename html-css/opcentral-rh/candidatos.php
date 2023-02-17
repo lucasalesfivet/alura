@@ -37,7 +37,7 @@ if (!isset($_SESSION['usu']))
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-			<img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
+				<img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
 				<a class="sidebar-brand" href="home.php">
 					<span class="align-middle">OPCentral</span>
 				</a>
@@ -95,8 +95,13 @@ if (!isset($_SESSION['usu']))
 
 			<main class="content">
 				<div class="container-fluid p-0">
-
 					<h1 class="h3 mb-3">Painel de Candidatos</h1>
+					<div class="h3 mb-3" style="text-align: right;">
+						<a class="btn btn-success" title="Ver Todos" style="color:#fff" href="todosCandidatos.php" role="button">
+							<i class="">Ver todos os candidatos</i>&nbsp;
+						</a>
+					</div>
+
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
@@ -108,8 +113,8 @@ if (!isset($_SESSION['usu']))
 										<thead>
 											<tr>
 												<th scope="col">Nome</th>
-												<th scope="col">E-Mail</th>
 												<th scope="col">Telefone</th>
+												<th scope="col">Cargo</th>
 												<th scope="col">Data</th>
 												<th scope="col">hora</th>
 												<th scope="col">Ações</th>
@@ -123,22 +128,22 @@ if (!isset($_SESSION['usu']))
 											while ($dados = mysqli_fetch_array($busca)) {;
 												$id = $dados['id'];
 												$nome = $dados['nome'];
-												$mail = $dados['email'];
 												$telefone = $dados['telefone'];
+												$cargo = $dados['cargo'];
 												$data = $dados['data'];
 												$hora = $dados['hora'];
 											?>
 												<tr>
 													<td><?php echo $nome ?></td>
-													<td><?php echo $mail ?></td>
 													<td><?php echo $telefone ?></td>
+													<td><?php echo $cargo ?></td>
 													<td><?php echo $data ?></td>
 													<td><?php echo $hora ?></td>
 													<td>
-														<a class="btn btn-success" style="color:#fff" href="confirmarAgendamento.php?id=<?php echo $id ?>" role="button">
+														<a class="btn btn-success" title="Confirmar Agendamento" style="color:#fff" href="confirmarAgendamento.php?id=<?php echo $id ?>" role="button">
 															<i class="fa-solid fa-check"></i>&nbsp;
 														</a>
-														<a class="btn btn-danger" style="color:#fff" href="cancelarAgendamento.php?id=<?php echo $id ?>" role="button">
+														<a class="btn btn-danger" title="Cancelar Agendamento" style="color:#fff" href="cancelarAgendamento.php?id=<?php echo $id ?>" role="button">
 															<i class="fa-solid fa-xmark"></i>
 														</a>
 													</td>
@@ -163,7 +168,7 @@ if (!isset($_SESSION['usu']))
 											<tr>
 												<th scope="col">Nome</th>
 												<th scope="col">Cargo</th>
-												<th scope="col">Ações</th>
+												<th scope="col">Ver +</th>
 
 											</tr>
 										</thead>
@@ -181,9 +186,9 @@ if (!isset($_SESSION['usu']))
 													<td><?php echo $nome ?></td>
 													<td><?php echo $cargo ?></td>
 													<td>
-														<button type="button" class="btn btn-alert" href="home.php">
+														<a class="btn btn-alert" title="Ver mais" style="color:#c6c6c6" href="verAtendido.php?id=<?php echo $id ?>" role="button">
 															<i class="fa-solid fa-magnifying-glass-plus"></i>
-														</button>
+														</a>
 													</td>
 												</tr>
 											<?php } ?>
@@ -205,7 +210,7 @@ if (!isset($_SESSION['usu']))
 											<tr>
 												<th scope="col">Id</th>
 												<th scope="col">Nome</th>
-												<th scope="col">Ações</th>
+												<th scope="col">Ver +</th>
 
 											</tr>
 										</thead>
@@ -223,9 +228,9 @@ if (!isset($_SESSION['usu']))
 													<td><?php echo $nome ?></td>
 													<td><?php echo $cargo ?></td>
 													<td>
-														<button type="button" class="btn btn-alert" href="home.php">
+														<a class="btn btn-alert" title="Ver mais" style="color:#c6c6c6" href="verCancelado.php?id=<?php echo $id ?>" role="button">
 															<i class="fa-solid fa-magnifying-glass-plus"></i>
-														</button>
+														</a>
 													</td>
 												</tr>
 											<?php } ?>

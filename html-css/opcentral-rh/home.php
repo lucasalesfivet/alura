@@ -37,13 +37,13 @@ if (!isset($_SESSION['usu']))
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-			<img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
+				<img src="img/logoquadrada.png" alt="Logotipo da Opção" class="menu-lateral__logo">
 				<a class="sidebar-brand" href="home.php">
 					<span class="align-middle">OPCentral</span>
 				</a>
 
 				<ul class="sidebar-nav">
-					
+
 					<li class="sidebar-header">
 						Módulo RH
 					</li>
@@ -221,36 +221,33 @@ if (!isset($_SESSION['usu']))
 									<thead>
 										<tr>
 											<th scope="col">Nome</th>
-											<th scope="col">E-Mail</th>
 											<th scope="col">Telefone</th>
+											<th scope="col">Cargo</th>
 											<th scope="col">Hora</th>
-											<th scope="col">Ações</th>
+											<th scope="col">Confirmar</th>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
 										include 'connect/conexao.php';
-										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null";
+										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data = curdate()";
 										$busca = mysqli_query($conexaoopc, $sql);
 										while ($dados = mysqli_fetch_array($busca)) {;
 											$id = $dados['id'];
 											$nome = $dados['nome'];
-											$mail = $dados['email'];
 											$telefone = $dados['telefone'];
+											$cargo = $dados['cargo'];
 											$hora = $dados['hora'];
 										?>
 											<tr>
 												<td><?php echo $nome ?></td>
-												<td><?php echo $mail ?></td>
 												<td><?php echo $telefone ?></td>
+												<td><?php echo $cargo ?></td>
 												<td><?php echo $hora ?></td>
 												<td>
-													<a class="btn btn-success" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
+													<a class="btn btn-success" title="Confirmar Presença" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
 														<i class="fa-solid fa-check"></i>&nbsp;
 													</a>
-													<a class="btn btn-danger" style="color:#fff" href="cancelarAtendimento.php?id=<?php echo $id ?>" role="button">
-															<i class="fa-solid fa-xmark"></i>
-														</a>
 												</td>
 											</tr>
 										<?php } ?>
@@ -277,14 +274,32 @@ if (!isset($_SESSION['usu']))
 										</tr>
 									</thead>
 									<tbody>
-
-										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
-										</tr>
+										<?php
+										include 'connect/conexao.php';
+										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data < curdate()";
+										$busca = mysqli_query($conexaoopc, $sql);
+										while ($dados = mysqli_fetch_array($busca)) {;
+											$id = $dados['id'];
+											$nome = $dados['nome'];
+											$telefone = $dados['telefone'];
+											$cargo = $dados['cargo'];
+											$hora = $dados['hora'];
+										?>
+											<tr>
+												<td><?php echo $nome ?></td>
+												<td><?php echo $telefone ?></td>
+												<td><?php echo $cargo ?></td>
+												<td><?php echo $hora ?></td>
+												<td>
+													<a class="btn btn-success" title="Confirmar Presença" style="color:#fff" href="confirmarAtendimento.php?id=<?php echo $id ?>" role="button">
+														<i class="fa-solid fa-check"></i>&nbsp;
+													</a>
+													<a class="btn btn-danger" title="Cancelar" style="color:#fff" href="cancelarAtendimento.php?id=<?php echo $id ?>" role="button">
+														<i class="fa-solid fa-xmark"></i>
+													</a>
+												</td>
+											</tr>
+										<?php } ?>
 									</tbody>
 								</table>
 							</div>
