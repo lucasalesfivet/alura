@@ -31,6 +31,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $cidade = $dados['cidade'];
     $estado = $dados['estado'];
     $data = $dados['data'];
+    $dtatendido = $dados['dtatendido']
 
 ?>
 
@@ -137,14 +138,16 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                         <h5 class="card-title">Endereço:</h5>
                                         <h6> <?php echo $logradouro . ', ' . $numero . ' - ' . $bairro ?></h6>
                                         <h6><?php echo $cidade . ' ' . $estado . ' - ' . $cep ?></h6>
-                                        <h5 class="card-title">Agendado para </h5>
+                                        <h5 class="card-title">Agendamento</h5>
                                         <h6> <?php echo $data ?></h6>
+                                        <h5 class="card-title">Atendido</h5>
+                                        <h6> <?php echo $dtatendido ?></h6>
                                     </div>
                                 </div>
                                 <a class="btn btn-danger" style="color:#fff" href="candidatos.php" role="button">
                                     <i class="">Voltar</i>&nbsp;
                                 </a>
-                                <a class="btn btn-success" style="color:#fff" href="confirmarAgendamento.php?id=<?php echo $id ?>" role="button">
+                                <a class="btn btn-success" style="color:#fff" href="#" role="button">
                                     <i class="">Adicionar Informações</i>&nbsp;
                                 </a>
                             </div>
