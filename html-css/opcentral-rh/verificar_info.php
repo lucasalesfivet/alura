@@ -40,6 +40,14 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $filhos = $dados['filhos'];
     $qtdfilhos = $dados['qtdfilhos'];
     $idadefilhos = $dados['idadefilhos'];
+    $tamcalcado = $dados['tamcalcado'];
+    $tamcamisa = $dados['tamcamisa'];
+    $protesepino = $dados['protesepino'];
+    $formacao = $dados['formacao'];
+    $office = $dados['office'];
+    $horarios = $dados['horarios'];
+    $processoatual = $dados['processoatual'];
+    $beneficiario = $dados['beneficiario'];
 ?>
 
     <!DOCTYPE html>
@@ -193,6 +201,46 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                         </div>
                                     </div>
                                 <?php } ?>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Prótese ou pino:</h5>
+                                        <h6> <?php echo $protesepino ?></h6>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="card-title">Tamanho do calçado:</h5>
+                                        <h6> <?php echo $tamcalcado ?></h6>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="card-title">Tamanho da Camisa:</h5>
+                                        <h6> <?php echo $tamcamisa ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">Formação:</h5>
+                                        <h6> <?php echo $formacao ?></h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="card-title">Nível pacote office:</h5>
+                                        <h6> <?php echo $office ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Diponibilidade de horário:</h5>
+                                        <h6> <?php echo $horarios ?></h6>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="card-title">Participando de processo seletivo atualmente:</h5>
+                                        <h6> <?php echo $processoatual ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h5 class="card-title">Recebendo algum benefício do Governo atualmente:</h5>
+                                        <h6> <?php echo $beneficiario ?></h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">

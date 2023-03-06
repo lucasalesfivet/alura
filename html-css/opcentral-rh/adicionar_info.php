@@ -194,7 +194,7 @@ if (!isset($_SESSION['usu']))
                                             <input type="text" class="form-control" id="estadocivil" name='estadocivil' maxlength="50" autocomplete="off">
                                         </div><br>
                                         <div class="row">
-                                            <div class="col-3">
+                                            <div class="col-2">
                                                 <label for="exampleFormControlInput1" class="form-label">Filhos?</label><br>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="filhos" id="filhos" value="S">
@@ -206,9 +206,9 @@ if (!isset($_SESSION['usu']))
                                                 </div>
 
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-2">
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Quantidade de Filhos</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">Quantidade</label>
                                                     <select class="form-control" id="exampleFormControlSelect1" name='qtdfilhos'>
                                                         <option></option>
                                                         <option value="1">1</option>
@@ -219,13 +219,98 @@ if (!isset($_SESSION['usu']))
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-5">
+                                            <div class="col-4">
                                                 <div class="mb-3">
                                                     <label for="exampleFormControlInput1" class="form-label">Idade dos Filhos</label>
                                                     <input type="text" class="form-control" name='idadefilhos' id="idadefilhos" autocomplete="off">
                                                 </div>
                                             </div>
+                                            <div class="col-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Prótese ou Pino?</label><br>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="protesepino" id="protesepino" value="Sim">
+                                                    <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="protesepino" id="protesepino" value="Não">
+                                                    <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tamanho do calçado</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1" name='tamcalcado'>
+                                                        <option></option>
+                                                        <option value="36">36</option>
+                                                        <option value="38">38</option>
+                                                        <option value="40">40</option>
+                                                        <option value="42">42</option>
+                                                        <option value="44">44</option>
+                                                        <option value="46">46</option>
+                                                        <option value="48">48</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Tamanho da camisa</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1" name='tamcamisa'>
+                                                        <option></option>
+                                                        <option value="P">P</option>
+                                                        <option value="M">M</option>
+                                                        <option value="G">G</option>
+                                                        <option value="GG">GG</option>
+                                                        <option value="EGG">EGG</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Formação:</label>
+                                                    <input type="text" class="form-control" id="formacao" name='formacao' maxlength="50" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Nível do pacote Office:</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1" name='office'>
+                                                        <option></option>
+                                                        <option value="Básico">Básico</option>
+                                                        <option value="Intermediario">Intermediário</option>
+                                                        <option value="Avançado">Avançado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Disponibilidade de horários:</label>
+                                                    <select class="form-control" id="exampleFormControlSelect1" name='horarios'>
+                                                        <option></option>
+                                                        <option value="Diurno">Diurno</option>
+                                                        <option value="Noturno">Noturno</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Está participando de algum processo seletivo no momento?</label>
+                                                    <input type="text" class="form-control" id="processoatual" name='processoatual' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Está recebendo algum benefício do Governo atualmente?</label>
+                                                    <input type="text" class="form-control" id="beneficiario" name='beneficiario' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div style="text-align: right;">
                                             <a class="btn btn-primary" title="voltar" style="color:#fff" href="verAtendido.php?id=<?php echo $id ?>" role="button">
                                                 Voltar
