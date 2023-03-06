@@ -33,6 +33,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $data = $dados['data'];
     $dtatendido = $dados['dtatendido'];
     $id_agendcand = $dados['id_agendcand'];
+    $pretsalarial = $dados['pretsalarial'];
 ?>
 
     <!DOCTYPE html>
@@ -121,46 +122,45 @@ while ($dados = mysqli_fetch_array($busca)) {;
 
                 <main class="content">
                     <div class="container-fluid p-0">
+                        <h1 class="h3 mb-3">Informações do Candidato</h1>
 
-                        <h1 class="h3 mb-3">Candidato Atendido</h1>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-4">
                                         <h5 class="card-title">Nome:</h5>
                                         <h6> <?php echo $nome ?></h6>
+                                    </div>
+                                    <div class="col-4">
                                         <h5 class="card-title">Email:</h5>
                                         <h6> <?php echo $email ?></h6>
+                                    </div>
+                                    <div class="col-4">
                                         <h5 class="card-title">Telefone:</h5>
                                         <h6> <?php echo $telefone ?></h6>
-                                        <h5 class="card-title">Cargo:</h5>
-                                        <h6> <?php echo $cargo ?></h6>
-                                        <h5 class="card-title">Endereço:</h5>
-                                        <h6> <?php echo $logradouro . ', ' . $numero . ' - ' . $bairro ?></h6>
-                                        <h6><?php echo $cidade . ' ' . $estado . ' - ' . $cep ?></h6>
-                                        <h5 class="card-title">Agendamento</h5>
-                                        <h6> <?php echo $data ?></h6>
-                                        <h5 class="card-title">Atendido</h5>
-                                        <h6> <?php echo $dtatendido ?></h6>
                                     </div>
                                 </div>
-                                <a class="btn btn-danger" style="color:#fff" href="todosCandidatos.php" role="button">
-                                    <i class="">Voltar</i>&nbsp;
-                                </a>                               
-                                <?php if ($id_agendcand > 0) { ?>
-                                    <a class="btn btn-success" style="color:#fff" href="verificar_info.php?id=<?php echo $id ?>" role="button">
-                                        <i class="">Informações Complementares</i>&nbsp;
-                                    </a>
-                                <?php } else { ?>
-                                    <a class="btn btn-success" style="color:#fff" href="adicionar_info.php?id=<?php echo $id ?>" role="button">
-                                        <i class="">Adicionar Informações</i>&nbsp;
-                                    </a>
-                                <?php } ?>
-                                <a class="btn btn-primary" style="color:#fff" href="corrigir.php?id=<?php echo $id ?>" role="button">
-                                    <i class="">Corrigir Atendimento</i>&nbsp;
-                                </a>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Cargo:</h5>
+                                        <h6> <?php echo $cargo ?></h6>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="card-title">Pretensão Salarial:</h5>
+                                        <h6> <?php echo $pretsalarial ?></h6>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-12">
+                            <a class="btn btn-danger" style="color:#fff" href="verAtendido.php?id=<?php echo $id ?>" role="button">
+                                <i class="">Voltar</i>&nbsp;
+                            </a>
+                            <a class="btn btn-primary" style="color:#fff" href="editar.php?id=<?php echo $id ?>" role="button">
+                                <i class="">Editar</i>&nbsp;
+                            </a>
+                        </div>
+
                     </div>
                 </main>
 

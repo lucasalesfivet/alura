@@ -80,7 +80,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                         </li>
 
                         <li class="sidebar-item active">
-                            <a class="sidebar-link" href="candidatos.php">
+                            <a class="sidebar-link" href="todosCandidatos.php">
                                 <i class="align-middle" data-feather="user"></i> <span class="align-middle">Candidatos</span>
                             </a>
                         </li>
@@ -111,7 +111,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     <span class="text-dark">Mais</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i> Perfil</a>
+                                    <a class="dropdown-item" href="candidatos.php"><i class="align-middle me-1" data-feather="monitor"></i> Painel</a>
                                     <a class="dropdown-item" href="index.php">Sair</a>
                                 </div>
                             </li>

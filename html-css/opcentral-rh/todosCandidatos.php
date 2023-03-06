@@ -37,7 +37,7 @@ if (!isset($_SESSION['usu']))
                     </li>
 
                     <li class="sidebar-item active">
-                        <a class="sidebar-link" href="candidatos.php">
+                        <a class="sidebar-link" href="todosCandidatos.php">
                             <i class="align-middle" data-feather="user"></i> <span class="align-middle">Candidatos</span>
                         </a>
                     </li>
@@ -58,22 +58,22 @@ if (!isset($_SESSION['usu']))
                 </a>
 
                 <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav navbar-align">
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-                                <i class="align-middle" data-feather="settings"></i>
-                            </a>
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
 
-                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                                <span class="text-dark">Mais</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i> Perfil</a>
-                                <a class="dropdown-item" href="index.php">Sair</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+								<span class="text-dark">Mais</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="candidatos.php"><i class="align-middle me-1" data-feather="monitor"></i> Painel</a>
+								<a class="dropdown-item" href="index.php">Sair</a>
+							</div>
+						</li>
+					</ul>
+				</div>
             </nav>
 
             <main class="content">
@@ -162,3 +162,5 @@ if (!isset($_SESSION['usu']))
 </body>
 
 </html>
+
+<script src="js/app.js"></script>
