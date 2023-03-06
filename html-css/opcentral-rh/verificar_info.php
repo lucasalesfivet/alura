@@ -34,6 +34,9 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $dtatendido = $dados['dtatendido'];
     $id_agendcand = $dados['id_agendcand'];
     $pretsalarial = $dados['pretsalarial'];
+    $dtnasc = $dados['dtnasc'];
+    $localnasc = $dados['localnasc'];
+    $ufnasc = $dados['ufnasc'];
 ?>
 
     <!DOCTYPE html>
@@ -147,7 +150,21 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     </div>
                                     <div class="col-8">
                                         <h5 class="card-title">Pretensão Salarial:</h5>
-                                        <h6> <?php echo $pretsalarial ?></h6>
+                                        <h6> <?php echo "R$ ".$pretsalarial ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Data de Nascimento:</h5>
+                                        <h6> <?php echo $dtnasc ?></h6>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="card-title">Local de Nascimento:</h5>
+                                        <h6> <?php echo $localnasc ?></h6>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="card-title">UF:</h5>
+                                        <h6> <?php echo $ufnasc ?></h6>
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +205,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
         </div>
 
         <script src="js/app.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-    </body>
 
-    </html>
+</body>
+
+</html>
