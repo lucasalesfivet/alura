@@ -145,19 +145,19 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     </div>
                                 </div>
                                 <a class="btn btn-danger" style="color:#fff" href="todosCandidatos.php" role="button">
-                                    <i class="">Voltar</i>&nbsp;
+                                    Voltar
                                 </a>                               
                                 <?php if ($id_agendcand > 0) { ?>
                                     <a class="btn btn-success" style="color:#fff" href="verificar_info.php?id=<?php echo $id ?>" role="button">
-                                        <i class="">Informações Complementares</i>&nbsp;
+                                        Informações Complementares
                                     </a>
                                 <?php } else { ?>
                                     <a class="btn btn-success" style="color:#fff" href="adicionar_info.php?id=<?php echo $id ?>" role="button">
-                                        <i class="">Adicionar Informações</i>&nbsp;
+                                        Adicionar Informações
                                     </a>
                                 <?php } ?>
                                 <a class="btn btn-primary" style="color:#fff" href="corrigir.php?id=<?php echo $id ?>" role="button">
-                                    <i class="">Corrigir Atendimento</i>&nbsp;
+                                    Corrigir Atendimento
                                 </a>
                             </div>
                         </div>

@@ -20,6 +20,6 @@ $sql = "INSERT INTO opccompcand (id_agendcand, pretsalarial, dtnasc, localnasc, 
 //echo $sql;
 $atualizar = mysqli_query($conexaoopc,$sql);
 
-header('Location: candidatos.php');
+header('Location: verificar_info.php?id='.$id);
 
 ?>

@@ -37,6 +37,9 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $dtnasc = $dados['dtnasc'];
     $localnasc = $dados['localnasc'];
     $ufnasc = $dados['ufnasc'];
+    $filhos = $dados['filhos'];
+    $qtdfilhos = $dados['qtdfilhos'];
+    $idadefilhos = $dados['idadefilhos'];
 ?>
 
     <!DOCTYPE html>
@@ -150,7 +153,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     </div>
                                     <div class="col-8">
                                         <h5 class="card-title">Pretensão Salarial:</h5>
-                                        <h6> <?php echo "R$ ".$pretsalarial ?></h6>
+                                        <h6> <?php echo "R$ " . $pretsalarial ?></h6>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -167,14 +170,37 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                         <h6> <?php echo $ufnasc ?></h6>
                                     </div>
                                 </div>
+                                <?php if ($filhos == 'S') { ?>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <h5 class="card-title">Possui filhos?</h5>
+                                            <h6> Sim</h6>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 class="card-title">Quantidade</h5>
+                                            <h6> <?php echo $qtdfilhos ?></h6>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 class="card-title">Idade</h5>
+                                            <h6> <?php echo $idadefilhos ?></h6>
+                                        </div>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h5 class="card-title">Filhos:</h5>
+                                            <h6> Não possui filhos.</h6>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="col-12">
                             <a class="btn btn-danger" style="color:#fff" href="verAtendido.php?id=<?php echo $id ?>" role="button">
-                                <i class="">Voltar</i>&nbsp;
+                                Voltar
                             </a>
-                            <a class="btn btn-primary" style="color:#fff" href="editar.php?id=<?php echo $id ?>" role="button">
-                                <i class="">Editar</i>&nbsp;
+                            <a class="btn btn-primary" style="color:#fff" href="#" role="button">
+                                Editar
                             </a>
                         </div>
 
@@ -206,6 +232,6 @@ while ($dados = mysqli_fetch_array($busca)) {;
 
         <script src="js/app.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>
