@@ -51,7 +51,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
 
         <link rel="canonical" href="https://devla.com.br" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-        <title>Opcentral</title>
+        <title>OPCentral</title>
 
         <link href="css/app.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -146,7 +146,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                 </div>
                                 <a class="btn btn-danger" style="color:#fff" href="todosCandidatos.php" role="button">
                                     Voltar
-                                </a>                               
+                                </a>
                                 <?php if ($id_agendcand > 0) { ?>
                                     <a class="btn btn-success" style="color:#fff" href="verificar_info.php?id=<?php echo $id ?>" role="button">
                                         Informações Complementares
@@ -155,10 +155,10 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     <a class="btn btn-success" style="color:#fff" href="adicionar_info.php?id=<?php echo $id ?>" role="button">
                                         Adicionar Informações
                                     </a>
+                                    <a class="btn btn-primary" style="color:#fff" href="corrigir.php?id=<?php echo $id ?>" role="button">
+                                        Corrigir Atendimento
+                                    </a>
                                 <?php } ?>
-                                <a class="btn btn-primary" style="color:#fff" href="corrigir.php?id=<?php echo $id ?>" role="button">
-                                    Corrigir Atendimento
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -189,6 +189,6 @@ while ($dados = mysqli_fetch_array($busca)) {;
 
         <script src="js/app.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>

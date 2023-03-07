@@ -34,7 +34,7 @@ if (!isset($_SESSION['usu']))
 
     <link rel="canonical" href="https://devla.com.br" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-    <title>Opcentral</title>
+    <title>OPCentral</title>
 
     <link href="css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -133,9 +133,15 @@ if (!isset($_SESSION['usu']))
                                                 <input type="hidden" class="form-control" id="id" value="<?php echo $id ?>" name='id'>
                                             </div>
                                         </div><br>
-                                        <div class="md-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Pretensão Salarial</label>
-                                            <input type="text" class="form-control" id="pretsalarial" name='pretsalarial' maxlength="50" autocomplete="off">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="exampleFormControlInput1" class="form-label">Pretensão Salarial</label>
+                                                <input type="text" class="form-control" id="pretsalarial" name='pretsalarial' maxlength="50" autocomplete="off">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="exampleFormControlInput1" class="form-label">Estado Civil</label>
+                                                <input type="text" class="form-control" id="estadocivil" name='estadocivil' maxlength="50" autocomplete="off">
+                                            </div>
                                         </div><br>
                                         <div class="row">
                                             <div class="col-5">
@@ -188,10 +194,6 @@ if (!isset($_SESSION['usu']))
                                         <div class="md-3">
                                             <label for="exampleFormControlInput1" class="form-label">Nome do Pai</label>
                                             <input type="text" class="form-control" id="nomepai" name='nomepai' maxlength="50" autocomplete="off">
-                                        </div><br>
-                                        <div class="md-3">
-                                            <label for="exampleFormControlInput1" class="form-label">Estado Civil</label>
-                                            <input type="text" class="form-control" id="estadocivil" name='estadocivil' maxlength="50" autocomplete="off">
                                         </div><br>
                                         <div class="row">
                                             <div class="col-2">
@@ -310,6 +312,165 @@ if (!isset($_SESSION['usu']))
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Já moveu alguma ação trabalhista?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="actrabalhista" id="actrabalhista" value="S">
+                                                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="actrabalhista" id="actrabalhista" value="N">
+                                                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Qual?</label>
+                                                    <input type="text" class="form-control" id="descactrabalhista" name='descactrabalhista' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Faz uso de alguma medicação?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="medicacao" id="medicacao" value="S">
+                                                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="medicacao" id="medicacao" value="N">
+                                                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Qual?</label>
+                                                    <input type="text" class="form-control" id="descmedicacao" name='descmedicacao' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">Possui algum tipo de alergia?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="alergia" id="alergia" value="S">
+                                                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="alergia" id="alergia" value="N">
+                                                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Qual?</label>
+                                                    <input type="text" class="form-control" id="descalergia" name='descalergia' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlSelect1" class="form-label">É ou já foi fumante?</label><br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="fumante" id="fumante" value="S">
+                                                        <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="fumante" id="fumante" value="N">
+                                                        <label class="form-check-label" for="inlineRadio2">Não</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-7">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Quando parou?</label>
+                                                    <input type="text" class="form-control" id="desfumante" name='descfumante' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Qual seu perfil nas Redes Sociais? (Instagram e Facebook)</label>
+                                                    <input type="text" class="form-control" id="processoatual" name='redesocial' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div><br>
+                                        <h5 class="card-title">► Empregos anteriores</h5>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Empresa</label>
+                                                    <input type="text" class="form-control" id="empresaant1" name='empresaant1' maxlength="25" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Cargo</label>
+                                                    <input type="text" class="form-control" id="cargoant1" name='cargoant1' maxlength="25" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <label for="exampleFormControlInput1" class="form-label">Data de Admissão</label>
+                                                <input type="date" class="form-control" name='admissao1' id="admissao1">
+                                            </div>
+                                            <div class="col-5">
+                                                <label for="exampleFormControlInput1" class="form-label">Data de Desligamento</label>
+                                                <input type="date" class="form-control" name='desligamento1' id="desligamento1">
+                                            </div>
+                                        </div><br>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Motivo</label>
+                                                    <input type="text" class="form-control" id="motivo1" name='motivo1' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div><br>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Empresa</label>
+                                                    <input type="text" class="form-control" id="empresaant2" name='empresaant2' maxlength="25" autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Cargo</label>
+                                                    <input type="text" class="form-control" id="cargoant2" name='cargoant2' maxlength="25" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <label for="exampleFormControlInput1" class="form-label">Data de Admissão</label>
+                                                <input type="date" class="form-control" name='admissao2' id="admissao2">
+                                            </div>
+                                            <div class="col-5">
+                                                <label for="exampleFormControlInput1" class="form-label">Data de Desligamento</label>
+                                                <input type="date" class="form-control" name='desligamento2' id="desligamento2">
+                                            </div>
+                                        </div><br>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Motivo</label>
+                                                    <input type="text" class="form-control" id="motivo2" name='motivo2' maxlength="30" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
 
                                         <div style="text-align: right;">
                                             <a class="btn btn-primary" title="voltar" style="color:#fff" href="verAtendido.php?id=<?php echo $id ?>" role="button">
@@ -317,8 +478,8 @@ if (!isset($_SESSION['usu']))
                                             </a>
                                             <button type="submit" class="btn btn-success">Salvar</button>
                                         </div>
-                                        <form>
-                                        <?php } ?>
+                                </form>
+                            <?php } ?>
                             </div>
                         </div>
                     </div>

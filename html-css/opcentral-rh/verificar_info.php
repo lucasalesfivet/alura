@@ -23,6 +23,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $email = $dados['email'];
     $telefone = $dados['telefone'];
     $cargo = $dados['cargo'];
+    $estadocivil = $dados['estadocivil'];
     $cep = $dados['cep'];
     $logradouro = $dados['logradouro'];
     $numero = $dados['numero'];
@@ -48,6 +49,25 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $horarios = $dados['horarios'];
     $processoatual = $dados['processoatual'];
     $beneficiario = $dados['beneficiario'];
+    $actrabalhista = $dados['actrabalhista'];
+    $descactrabalhista = $dados['descactrabalhista'];
+    $medicacao = $dados['medicacao'];
+    $descmedicacao = $dados['descmedicacao'];
+    $alergia = $dados['alergia'];
+    $descalergia = $dados['descalergia'];
+    $fumante = $dados['fumante'];
+    $descfumante = $dados['descfumante'];
+    $redesocial = $dados['redesocial'];
+    $empresaant1 = $dados['empresaant1'];
+    $cargoant1 = $dados['cargoant1'];
+    $admissao1 = $dados['admissao1'];
+    $desligamento1 = $dados['desligamento1'];
+    $motivo1 = $dados['motivo1'];
+    $empresaant2 = $dados['empresaant2'];
+    $cargoant2 = $dados['cargoant2'];
+    $admissao2 = $dados['admissao2'];
+    $desligamento2 = $dados['desligamento2'];
+    $motivo2 = $dados['motivo2'];
 ?>
 
     <!DOCTYPE html>
@@ -66,7 +86,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
 
         <link rel="canonical" href="https://devla.com.br" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
-        <title>Opcentral</title>
+        <title>OPCentral</title>
 
         <link href="css/app.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -159,9 +179,13 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                         <h5 class="card-title">Cargo:</h5>
                                         <h6> <?php echo $cargo ?></h6>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-4">
                                         <h5 class="card-title">Pretensão Salarial:</h5>
                                         <h6> <?php echo "R$ " . $pretsalarial ?></h6>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="card-title">Estado civil:</h5>
+                                        <h6> <?php echo $estadocivil ?></h6>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -239,6 +263,105 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     <div class="col-8">
                                         <h5 class="card-title">Recebendo algum benefício do Governo atualmente:</h5>
                                         <h6> <?php echo $beneficiario ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Já moveu alguma ação trabalhista?</h5>
+                                        <h6> <?php echo $actrabalhista ?></h6>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="card-title">Qual?</h5>
+                                        <h6> <?php echo $descactrabalhista ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Faz uso de medicação?</h5>
+                                        <h6> <?php echo $medicacao ?></h6>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="card-title">Qual?</h5>
+                                        <h6> <?php echo $descmedicacao ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">Possui algum tipo de alergia?</h5>
+                                        <h6> <?php echo $alergia ?></h6>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="card-title">Qual?</h5>
+                                        <h6> <?php echo $descalergia ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="card-title">É ou já foi fumante?</h5>
+                                        <h6> <?php echo $fumante ?></h6>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5 class="card-title">Quando parou?</h5>
+                                        <h6> <?php echo $descfumante ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="card-title">Perfil nas Redes Sociais: (Instagram e Facebook)</h5>
+                                        <h6> <?php echo $redesocial ?></h6>
+                                    </div>
+                                </div><br>
+                                <h5 class="card-title">► EMPREGOS ANTERIORES</h5><br>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">Empresa</h5>
+                                        <h6> <?php echo $empresaant1 ?></h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="card-title">Cargo</h5>
+                                        <h6> <?php echo $cargoant1 ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">Admissão</h5>
+                                        <h6> <?php echo $admissao1 ?></h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="card-title">Desligamento</h5>
+                                        <h6> <?php echo $desligamento1 ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="card-title">Motivo</h5>
+                                        <h6> <?php echo $motivo1 ?></h6>
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">Empresa</h5>
+                                        <h6> <?php echo $empresaant2 ?></h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="card-title">Cargo</h5>
+                                        <h6> <?php echo $cargoant2 ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h5 class="card-title">Admissão</h5>
+                                        <h6> <?php echo $admissao2 ?></h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="card-title">Desligamento</h5>
+                                        <h6> <?php echo $desligamento2 ?></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="card-title">Motivo</h5>
+                                        <h6> <?php echo $motivo2 ?></h6>
                                     </div>
                                 </div>
                             </div>
