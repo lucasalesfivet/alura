@@ -145,13 +145,13 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     </div>
                                 </div>
                                 <a class="btn btn-danger" style="color:#fff" href="candidatos.php" role="button">
-                                    <i class="">Voltar</i>&nbsp;
+                                    Voltar
                                 </a>
                                 <a class="btn btn-info" style="color:#fff" href="justificar.php?id=<?php echo $id ?>" role="button">
-                                    <i class="">Justificar</i>&nbsp;
+                                    Justificar
                                 </a>
                                 <a class="btn btn-success" style="color:#fff" href="reagendar.php?id=<?php echo $id ?>" role="button">
-                                    <i class="">Reagendar</i>&nbsp;
+                                    Reagendar
                                 </a>
                             </div>
                         </div>

@@ -142,7 +142,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     </div>
                                 </div>
                                 <a class="btn btn-danger" style="color:#fff" href="todosCandidatos.php" role="button">
-                                    <i class="">Voltar</i>&nbsp;
+                                    Voltar
                                 </a>
                             </div>
                         </div>
