@@ -58,22 +58,22 @@ if (!isset($_SESSION['usu']))
                 </a>
 
                 <div class="navbar-collapse collapse">
-					<ul class="navbar-nav navbar-align">
-						<li class="nav-item dropdown">
-							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-								<i class="align-middle" data-feather="settings"></i>
-							</a>
+                    <ul class="navbar-nav navbar-align">
+                        <li class="nav-item dropdown">
+                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
+                                <i class="align-middle" data-feather="settings"></i>
+                            </a>
 
-							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-								<span class="text-dark">Mais</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-end">
-								<a class="dropdown-item" href="candidatos.php"><i class="align-middle me-1" data-feather="monitor"></i> Painel</a>
-								<a class="dropdown-item" href="index.php">Sair</a>
-							</div>
-						</li>
-					</ul>
-				</div>
+                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                                <span class="text-dark">Mais</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="candidatos.php"><i class="align-middle me-1" data-feather="monitor"></i> Painel</a>
+                                <a class="dropdown-item" href="index.php">Sair</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </nav>
 
             <main class="content">
@@ -84,7 +84,7 @@ if (!isset($_SESSION['usu']))
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <table class="table">
+                                    <table class="table" id="listarCandidatos" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Nome</th>
@@ -117,18 +117,19 @@ if (!isset($_SESSION['usu']))
                                                     <td><?php
                                                         if (($dtatendido > 1) && ($dtcancelado == 0)) { ?>
                                                             <class="" style="color: green">Atendido</class>
-                                                        <?php } elseif (($dtatendido == 0) && ($dtcancelado > 1)) { ?>
-                                                            <class="" style="color: #B22222">Cancelado</class=>
-                                                        <?php } else { ?>
-                                                            <class="" style="color: #191970">Agendado</class=>
-                                                        <?php }
-                                                        ?></td>
+                                                            <?php } elseif (($dtatendido == 0) && ($dtcancelado > 1)) { ?>
+                                                                <class="" style="color: #B22222">Cancelado</class=>
+                                                                <?php } else { ?>
+                                                                    <class="" style="color: #191970">Agendado</class=>
+                                                                    <?php }
+                                                                    ?>
+                                                    </td>
                                                     <td>
                                                         <?php
                                                         if (($dtatendido > 1) && ($dtcancelado == 0)) { ?>
                                                             <a class="btn btn-alert" title="Ver mais" style="color: grey" href="verAtendido.php?id=<?php echo $id ?>" role="button">
                                                                 <i class="fa-solid fa-magnifying-glass-plus"></i>
-                                                            </a> 
+                                                            </a>
                                                         <?php } elseif (($dtatendido == 0) && ($dtcancelado > 1)) { ?>
                                                             <a class="btn btn-alert" title="Ver mais" style="color: grey" href="verCancelado.php?id=<?php echo $id ?>" role="button">
                                                                 <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -157,7 +158,19 @@ if (!isset($_SESSION['usu']))
         </div>
     </div>
 
-	<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('listarCandidatos').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: 'listarCandidatos.php',
+            });
+        });
+    </script>
 
 </body>
 
