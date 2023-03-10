@@ -44,9 +44,9 @@ $motivo2 = $_POST['motivo2'];
 $sql = "INSERT INTO opccompcand (id_agendcand, pretsalarial, dtnasc, localnasc, ufnasc, nomemae, nomepai, estadocivil, filhos, qtdfilhos, idadefilhos, tamcalcado, tamcamisa, protesepino, formacao, office, horarios, processoatual, beneficiario, actrabalhista, descactrabalhista, medicacao, descmedicacao, alergia, descalergia, fumante, descfumante, redesocial, empresaant1, cargoant1, admissao1, desligamento1, motivo1, empresaant2, cargoant2, admissao2, desligamento2, motivo2)
         VALUES ('$id', '$pretsalarial', '$dtnasc', '$localnasc', '$ufnasc', '$nomemae', '$nomepai', '$estadocivil', '$filhos', '$qtdfilhos', '$idadefilhos', '$tamcalcado', '$tamcamisa', '$protesepino', '$formacao', '$office', '$horarios', '$processoatual', '$beneficiario', '$actrabalhista', '$descactrabalhista', '$medicacao', '$descmedicacao', '$alergia', '$descalergia', '$fumante', '$descfumante', '$redesocial', '$empresaant1', '$cargoant1', '$admissao1', '$desligamento1', '$motivo1', '$empresaant2', '$cargoant2', '$admissao2', '$desligamento2', '$motivo2')";
             
-//echo $sql;
-$atualizar = mysqli_query($conexaoopc,$sql);
+echo $sql;
+//$atualizar = mysqli_query($conexaoopc,$sql);
 
-header('Location: verificar_info.php?id='.$id);
+//header('Location: verificar_info.php?id='.$id);
 
 ?>

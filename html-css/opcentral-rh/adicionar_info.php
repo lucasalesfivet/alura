@@ -119,6 +119,12 @@ if (!isset($_SESSION['usu']))
 
                                         $nome = $dados['nome'];
                                         $cargo = $dados['cargo'];
+                                        $cep = $dados['cep'];
+                                        $logradouro = $dados['logradouro'];
+                                        $numero = $dados['numero'];
+                                        $complemento = $dados['complemento'];
+                                        $bairro = $dados['bairro'];
+                                        $cidade = $dados['cidade'];
 
                                     ?>
                                         <div class="row">
@@ -242,7 +248,7 @@ if (!isset($_SESSION['usu']))
                                         <div class="row">
                                             <div class="col-2">
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tamanho do calçado</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">TM Calçado:</label>
                                                     <select class="form-control" id="exampleFormControlSelect1" name='tamcalcado'>
                                                         <option></option>
                                                         <option value="36">36</option>
@@ -257,7 +263,7 @@ if (!isset($_SESSION['usu']))
                                             </div>
                                             <div class="col-2">
                                                 <div class="mb-3">
-                                                    <label for="exampleFormControlSelect1" class="form-label">Tamanho da camisa</label>
+                                                    <label for="exampleFormControlSelect1" class="form-label">TM Camisa:</label>
                                                     <select class="form-control" id="exampleFormControlSelect1" name='tamcamisa'>
                                                         <option></option>
                                                         <option value="P">P</option>
@@ -510,7 +516,30 @@ if (!isset($_SESSION['usu']))
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+        function viaCEP() {
 
+            var numCep = $("#cep").val();
+
+            var url = "https://viacep.com.br/ws/" + numCep + "/json";
+
+            $.ajax({
+                url: url,
+                type: "get",
+                dataType: "json",
+
+                success: function(dados) {
+                    console.log(dados);
+                    $("#uf").val(dados.uf);
+                    $("#cidade").val(dados.localidade);
+                    $("#logradouro").val(dados.logradouro);
+                    $("#bairro").val(dados.bairro);
+                }
+            })
+
+
+        }
+    </script>
 
 </body>
 
