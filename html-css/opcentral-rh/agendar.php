@@ -109,7 +109,7 @@ if (!isset($_SESSION['usu']))
 									<div class="row">
 										<div class="col-4">
 											<label for="exampleFormControlInput1" class="form-label">CEP</label>
-											<input type="text" class="form-control" id="cep" name='cep' maxlength="8" onkeyup="viaCEP()" autocomplete="off">
+											<input type="text" class="form-control" id="cep" name='cep' maxlength="8" onkeyup="viaCEP()" required autocomplete="off">
 										</div>
 										<div class="col-8">
 											<div class="mb-3">
@@ -121,7 +121,7 @@ if (!isset($_SESSION['usu']))
 									<div class="row">
 										<div class="col-2">
 											<label for="exampleFormControlInput1" class="form-label">Nº</label>
-											<input type="int" class="form-control" name='numero' minlength="1" maxlength="3" id="exampleFormControlInput1" required autocomplete="off">
+											<input type="number" class="form-control" name='numero' maxlength="3" id="exampleFormControlInput1" required autocomplete="off">
 										</div>
 										<div class="col-10">
 											<label for="exampleFormControlInput1" class="form-label">Complemento</label>
