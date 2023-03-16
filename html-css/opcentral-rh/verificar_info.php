@@ -375,7 +375,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                                 Currículo
                                             </a>
                                             <a class="btn btn-info" href="redacao/<?php echo $redacao ?>" target="_blank" role="button">
-                                                Redação
+                                                Questionário/Redação
                                             </a>
                                         </div>
                                     </div>
@@ -391,7 +391,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                     <div class="row">
                                         <div class="col-12">
                                             <a class="btn btn-info" href="redacao/<?php echo $redacao ?>" target="_blank" role="button">
-                                                Redação
+                                                Questionário/Redação
                                             </a>
                                         </div>
                                     </div>

@@ -142,7 +142,7 @@ if (!isset($_SESSION['usu']))
                                             <input class="form-control" type="file" name="curriculo" id="formFile">
                                         </div><br>
                                         <div class="col-6">
-                                            <label for="formFile" class="form-label">Redação</label>
+                                            <label for="formFile" class="form-label">Quetionário/Redação</label>
                                             <input class="form-control" type="file" name="redacao" id="formFile">
                                         </div><br>
 

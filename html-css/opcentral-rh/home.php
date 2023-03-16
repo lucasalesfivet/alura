@@ -264,7 +264,7 @@ if (!isset($_SESSION['usu']))
 									<tbody>
 										<?php
 										include 'connect/conexao.php';
-										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data < curdate()";
+										$sql = "SELECT * FROM opcagendcand WHERE dtconfirmado is not null and data <> curdate()";
 										$busca = mysqli_query($conexaoopc, $sql);
 										while ($dados = mysqli_fetch_array($busca)) {;
 											$id = $dados['id'];
