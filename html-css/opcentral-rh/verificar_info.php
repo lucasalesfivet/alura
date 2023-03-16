@@ -34,6 +34,7 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $data = $dados['data'];
     $dtatendido = $dados['dtatendido'];
     $id_agendcand = $dados['id_agendcand'];
+    $id_compcand = $dados['id_compcand'];
     $pretsalarial = $dados['pretsalarial'];
     $dtnasc = $dados['dtnasc'];
     $localnasc = $dados['localnasc'];
@@ -68,6 +69,8 @@ while ($dados = mysqli_fetch_array($busca)) {;
     $admissao2 = $dados['admissao2'];
     $desligamento2 = $dados['desligamento2'];
     $motivo2 = $dados['motivo2'];
+    $curriculo = $dados['curriculo'];
+    $redacao = $dados['redacao'];
 ?>
 
     <!DOCTYPE html>
@@ -363,7 +366,44 @@ while ($dados = mysqli_fetch_array($busca)) {;
                                         <h5 class="card-title">Motivo</h5>
                                         <h6> <?php echo $motivo2 ?></h6>
                                     </div>
-                                </div>
+                                </div><BR>
+                                <h5 class="card-title">► ANEXOS</h5><br>
+                                <?php if (($curriculo !== null) && ($redacao !== null)) { ?>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a class="btn btn-info" href="curriculo/<?php echo $curriculo ?>" target="_blank" role="button">
+                                                Currículo
+                                            </a>
+                                            <a class="btn btn-info" href="redacao/<?php echo $redacao ?>" target="_blank" role="button">
+                                                Redação
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } elseif (($curriculo !== null) && ($redacao == null)) { ?>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a class="btn btn-info" href="curriculo/<?php echo $curriculo ?>" target="_blank" role="button">
+                                                Currículo
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } elseif (($curriculo == null) && ($redacao !== null)) { ?>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a class="btn btn-info" href="redacao/<?php echo $redacao ?>" target="_blank" role="button">
+                                                Redação
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } else { ?>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a class="btn btn-info" href="adicionar_anexos.php?id=<?php echo $id_compcand ?>" role="button">
+                                                Adicionar anexos
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="col-12">

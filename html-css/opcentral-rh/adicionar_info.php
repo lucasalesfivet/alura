@@ -240,7 +240,7 @@ if (!isset($_SESSION['usu']))
                                                     <label class="form-check-label" for="inlineRadio1">Sim</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="protesepino" id="protesepino" value="Não">
+                                                    <input class="form-check-input" type="radio" name="protesepino" id="protesepino" value="Nao">
                                                     <label class="form-check-label" for="inlineRadio2">Não</label>
                                                 </div>
                                             </div>
@@ -475,7 +475,6 @@ if (!isset($_SESSION['usu']))
                                                 </div>
                                             </div>
                                         </div>
-
 
 
                                         <div style="text-align: right;">
