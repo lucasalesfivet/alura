@@ -155,7 +155,7 @@ if (!isset($_SESSION['usu']))
 									</div>
 									<h1 class="mt-1 mb-3">
 										<?php
-										$sql = "SELECT COUNT(id) as atendidoshoje FROM opcagendcand  WHERE data = curdate() and dtatendido is not null";
+										$sql = "SELECT COUNT(id) as atendidoshoje FROM opcagendcand  WHERE dtatendido is not null";
 										$busca = mysqli_query($conexaoopc, $sql);
 										while ($dados = mysqli_fetch_array($busca)) {;
 											$atendhoje = $dados['atendidoshoje'];
@@ -182,7 +182,7 @@ if (!isset($_SESSION['usu']))
 									</div>
 									<h1 class="mt-1 mb-3">
 										<?php
-										$sql = "SELECT COUNT(id) as canceladoshoje FROM opcagendcand  WHERE data = curdate() and dtcancelado is not null";
+										$sql = "SELECT COUNT(id) as canceladoshoje FROM opcagendcand  WHERE dtcancelado is not null";
 										$busca = mysqli_query($conexaoopc, $sql);
 										while ($dados = mysqli_fetch_array($busca)) {;
 											$cancelhoje = $dados['canceladoshoje'];
