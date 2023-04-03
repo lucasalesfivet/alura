@@ -1,0 +1,566 @@
+@import url("header.css");
+
+:root {
+    --cor-de-fundo: #ebecee;
+    --cor-do-topo: #FFFFFF;
+    --vermelho: red;
+    --fonte-principal: "Poppins";
+    --cor-do-cartao: #F9F9F9;
+    --cor-do-botao-mouse: #FA8072;
+    --cor-do-botao-clicado: red;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+}
+
+/*------------corpo------------*/
+
+b {
+    font-weight: 500;
+}
+
+.principal {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    margin: 0 auto;
+}
+
+.card  {
+    display: flex;
+    justify-content: center; /*centraliza dentro da div*/
+    flex-direction: column;
+    position: static;
+    width: 650px;
+    height: 300px;
+    margin: 5em auto;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-texto { 
+    text-align: center;
+}
+
+.card-titulo1 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.card-titulo2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* página de vendas */
+
+.quadro {
+    display: grid;
+    /*background-color: red;*/
+    /*border: 5px solid black;*/
+    margin: 3em 2em;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+}
+
+.card_vendas  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 60vw;
+    height: 150px;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.card_vendas-texto { 
+    text-align: center;
+}
+
+.card_vendas-titulo1 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.card_vendas-titulo2 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.card_vendas-botao-resumo  {
+    display: flex;
+    width: 29vw;
+    height: 100px;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 2;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-start;
+}
+
+.card_vendas-botao {
+    text-align: center;
+    color: grey;
+}
+
+.card_vendas-botao-resumo:hover  {
+    color: #000000;
+}
+
+.botao_resumo {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.card_vendas-botao-dash  {
+    display: flex;
+    width: 29vw;
+    height: 100px;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-end;
+}
+
+.card_vendas-botao-dash:hover  {
+    color: var(--vermelho);
+}
+
+/* página de resumo de vendas */
+
+.quadro-resumo {
+    display: grid;
+    /*background-color: red;*/
+    /*border: 5px solid black;*/
+    margin: 3em auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 70vw;
+}
+
+.card-texto-resumo { 
+    text-align: center;
+}
+
+.card-titulo1-resumo {
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.subtitulo {
+    margin-top: 5px;
+    font-size: 0.7em;
+}
+
+.card-titulo2-resumo {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.card-subtitulo {
+    color: grey;
+    font-size: 1em;
+    font-weight: 400;
+    margin-top: 1px;
+}
+
+.card-titulo1-resumohoje {
+    font-size: 1.3em;
+}
+
+.card-titulo2-resumohoje {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.card_vendas-atual1  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 74%;
+    height: 22vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.card_vendas-atual2  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 74%;
+    height: 22vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    justify-self: flex-end;
+}
+
+.card_vendas-atual3  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 2;
+}
+
+.card_vendas-atual4  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 1;
+    grid-row: 2;
+}
+
+.card_vendas-atual14  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 3 / span 1;
+    grid-row: 2;
+}
+
+.card_vendas-atual5  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 3;
+}
+
+.card_vendas-atual6  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 1;
+    grid-row: 3;
+}
+
+.card_vendas-atual7  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 3 / span 1;
+    grid-row: 3;
+}
+
+.card_vendas-atual8  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 4;
+}
+
+.card_vendas-atual9  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 1;
+    grid-row: 4;
+}
+
+.card_vendas-atual10  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 3 / span 1;
+    grid-row: 4;
+}
+
+.card_vendas-atual11  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 5;
+}
+
+.card_vendas-atual12  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 1;
+    grid-row: 5;
+}
+
+.card_vendas-atual13  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 3 / span 1;
+    grid-row: 5;
+}
+
+.card_vendas-dash1  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 74%;
+    height: 22vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+.card_vendas-dash2  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 74%;
+    height: 22vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    justify-self: flex-end;
+}
+
+.card_vendas-dash3  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 2;
+}
+
+.card_vendas-dash4  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 1;
+    grid-row: 2;
+}
+
+.card_vendas-dash5  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 3 / span 1;
+    grid-row: 2;
+}
+
+.card_vendas-dash6  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 1 / span 1;
+    grid-row: 3;
+}
+
+.card_vendas-dash7  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 2 / span 1;
+    grid-row: 3;
+}
+
+.card_vendas-dash8  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*centraliza dentro da div*/
+    width: 100%;
+    height: 20vh;
+    background-color: var(--cor-do-cartao);
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    grid-column: 3 / span 1;
+    grid-row: 3;
+}
+
+.greenback {
+    background-color: #CEFF9D;
+}
+
+.yellowback {
+ background-color: #FFF0BC;
+}
+
+.redback {
+    background-color: #FFBDBD;
+}
+
+.bottom {
+    margin-bottom: 3px;
+}
+
+@media screen and (max-width: 980px) {
+
+    .card {
+        width: 80%;
+        margin: 3em auto;
+    }
+
+    .card_vendas  {
+        width: 100%;
+        height: 150px;
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    }
+
+    .card_vendas-botao-resumo  {
+        display: flex;
+        width: 37vw;
+        height: 80px;
+    }
+
+    .card_vendas-botao-dash  {
+        display: flex;
+        width: 37vw;
+        height: 80px;
+    }
+
+    .card-titulo1 {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .card-titulo2 {
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    .botao_resumo {
+        font-size: 70%;
+        font-weight: 500;
+    }
+
+    .quadro-resumo {
+        width: 90%;
+    }
+
+    .card-titulo1-resumo {
+        font-size: 0.7em;
+        font-weight: 400;
+    }
+    
+    .card-titulo2-resumo {
+        font-size: 1.1em;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+    
+    .card-titulo1-resumohoje {
+        font-size: 1em;
+    }
+    
+    .card-titulo2-resumohoje {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+
+}
+

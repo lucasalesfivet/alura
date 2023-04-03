@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'icones';
+    src: url(font/icones.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.cabecalho {
+    background-color: var(--cor-do-topo);
+    display: grid;
+    padding: 16px 35px;
+    height: 65px;
+    box-sizing: border-box;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* esconde o botão do menu */
+.cabecalho__botao-menu {
+    display: none;
+}
+
+/* esconde a logo do topo */
+.cabecalho__logo {
+    display: none;
+}
+
+/* configuração do botão de usuário */
+.cabecalho__botao-usuario {
+    display: grid;
+    background-image: url("../img/usuario.svg");
+    width: 35px;
+    height: 35px;
+    justify-self: flex-end;
+    background-repeat: no-repeat;
+    background-position: center;  
+    align-items: center;
+}
+
+/* menu lateral sempre aberto */
+.menu-lateral__logo {
+    display: block;
+}
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    background-color: var(--cor-do-topo);
+    position: static;
+    width: 12vw;
+    height: 100vh;
+}
+
+/* titulo do menu */
+.menu-lateral__titulo {
+    margin: 1em 0;
+    text-align: center;
+    color: var(--vermelho);
+    font-weight: 500;
+}
+
+/* configuração do botão que estiver ativo */
+.menu-lateral__link--ativo {
+    color: #383838;
+    padding-left: 56px;
+    border-left: 8px solid #383838;
+    font-weight: 500;
+}
+
+/* configuração dos demais botões */
+.menu-lateral__link {
+    height: 60px;
+    color: #616262;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-lateral__link:hover {
+    background-color: var(--cor-do-botao-mouse);
+}
+
+.menu-lateral__link:active {
+    background-color: var(--cor-do-botao-clicado);
+}
+
+@media screen and (max-width: 980px) {
+
+    body {
+        display: block;
+    }
+
+    .cabecalho {
+        display: flex;
+        align-items: center;
+        padding: 8px 16px;
+        justify-content: space-between;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .cabecalho__botao-menu {
+        width: 35px;
+        height: 35px;
+        background-image: url("../img/menu.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+    }
+
+    .cabecalho__logo {
+        display: inline-block;
+    }
+
+    .cabecalho__botao-usuario {
+        display: inline-block;
+    }
+
+    /* configuração do menu lateral */
+    .menu-lateral__logo {
+        display: none;
+    }
+
+    .menu-lateral {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--cor-do-topo);
+        width: 45vw;
+        height: 100vh;
+        left: -100vw;
+        transition: .25s;
+    }
+
+    /* transição de abertura e fechamento do menu */
+    .menu-lateral--ativo {
+        left: 0;
+        transition: .25s;
+    }
+
+    /* titulo do menu */
+    .menu-lateral__titulo {
+        margin: 1em 0;
+        text-align: center;
+        color: var(--vermelho);
+        font-weight: 500;
+    }
+
+    /* configuração do botão que estiver ativo */
+    .menu-lateral__link--ativo {
+        color: #383838;
+        padding-left: 56px;
+        border-left: 8px solid #383838;
+    }
+
+    /* configuração dos demais botões */
+    .menu-lateral__link {
+        height: 64px;
+        color: #616262;
+        padding-left: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+
+}
