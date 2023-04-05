@@ -90,175 +90,187 @@ include 'connect/conexao.php';
 					<h1 class="h3 mb-3"><strong>Início</strong> Dashboard</h1>
 
 					<div class="row">
-						<div class="col-xl-12 col-xxl-5 d-flex">
-							<div class="w-100">
-								<div class="row">
-									<div class="col-sm-4">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Pedidos</h5>
-													</div>
-
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="activity"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">
-													<?php
-													$sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('L','M','F','B') and codcob <> 'BNF'");
-
-													$stid = oci_parse($conexao, $sql);
-													$execute = oci_execute($stid);
-
-													while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-														// Use the uppercase column names for the associative array indices
-														echo $row['NUMPED'];
-													}
-													?>
-												</h1>
-											</div>
+						<div class="col-sm-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Pedidos</h5>
 										</div>
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Pedidos em Análise</h5>
-													</div>
-
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="alert-circle"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">
-													<?php
-													$sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('B') and codcob <> 'BNF'");
-
-													$stid = oci_parse($conexao, $sql);
-													$execute = oci_execute($stid);
-
-													while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-														// Use the uppercase column names for the associative array indices
-														echo $row['NUMPED'];
-													}
-													?>
-												</h1>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="activity"></i>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-4">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Pedidos Faturados</h5>
-													</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('L','M','F','B') and codcob <> 'BNF'");
 
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="shopping-cart"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">
-													<?php
-													$sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat = trunc(SYSDATE) and codcob <> 'BNF'");
+										$stid = oci_parse($conexao, $sql);
+										$execute = oci_execute($stid);
 
-													$stid = oci_parse($conexao, $sql);
-													$execute = oci_execute($stid);
-
-													while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-														// Use the uppercase column names for the associative array indices
-														echo $row['NUMNOTA'];
-													}
-													?>
-												</h1>
-											</div>
+										while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+											// Use the uppercase column names for the associative array indices
+											echo $row['NUMPED'];
+										}
+										?>
+									</h1>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Pedidos Faturados</h5>
 										</div>
 
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Carregamentos em Aberto</h5>
-													</div>
-
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="clipboard"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">
-													<?php
-													$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-abril-2023' and (trunc(SYSDATE))
-                            						and dtfecha is null");
-
-													$stid = oci_parse($conexao, $sql);
-													$execute = oci_execute($stid);
-
-													while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-														// Use the uppercase column names for the associative array indices
-														echo $row['TOT_CARREG_ABERTO'];
-													}
-													?>
-												</h1>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="shopping-cart"></i>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-4">
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Faturamento</h5>
-													</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = ("SELECT count(*) NUMNOTA FROM pcnfsaid WHERE dtfat = trunc(SYSDATE) and codcob <> 'BNF'");
 
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="dollar-sign"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">
-													<?php
-													$sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
+										$stid = oci_parse($conexao, $sql);
+										$execute = oci_execute($stid);
+
+										while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+											// Use the uppercase column names for the associative array indices
+											echo $row['NUMNOTA'];
+										}
+										?>
+									</h1>
+									<div class="mb-0">
+										<span class="text-muted">mês anterior</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Faturamento</h5>
+										</div>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="dollar-sign"></i>
+											</div>
+										</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = ("SELECT TO_CHAR((SELECT round(SUM(vltotal)) as FAT FROM pcpedc 
 													where data = trunc(SYSDATE)
 													and codcob <> 'BNF'),'FM999G999G999G999') as VALOR FROM
 													pcpedc where rownum = 1");
 
-													$stid = oci_parse($conexao, $sql);
-													$execute = oci_execute($stid);
+										$stid = oci_parse($conexao, $sql);
+										$execute = oci_execute($stid);
 
-													while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-														// Use the uppercase column names for the associative array indices
-														echo 'R$' . $row['VALOR'];
-													}
-													?>
-												</h1>
+										while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+											// Use the uppercase column names for the associative array indices
+											echo 'R$' . $row['VALOR'];
+										}
+										?>
+									</h1>
+									<div class="mb-0">
+										<span class="text-muted">mês atual/ano anterior</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Pedidos em Análise</h5>
+										</div>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="alert-circle"></i>
 											</div>
 										</div>
-										<div class="card">
-											<div class="card-body">
-												<div class="row">
-													<div class="col mt-0">
-														<h5 class="card-title">Caminhões em Rota</h5>
-													</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = ("SELECT count(*) NUMPED FROM pcpedc where data = trunc(SYSDATE) and posicao in ('B') and codcob <> 'BNF'");
 
-													<div class="col-auto">
-														<div class="stat text-primary">
-															<i class="align-middle" data-feather="truck"></i>
-														</div>
-													</div>
-												</div>
-												<h1 class="mt-1 mb-3">
-													<?php
-													$sql = ("SELECT * FROM
+										$stid = oci_parse($conexao, $sql);
+										$execute = oci_execute($stid);
+
+										while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+											// Use the uppercase column names for the associative array indices
+											echo $row['NUMPED'];
+										}
+										?>
+									</h1>
+									<div class="mb-0">
+										<span class="text-muted">mês atual</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Carregamentos em Aberto</h5>
+										</div>
+
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="clipboard"></i>
+											</div>
+										</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-abril-2023' and (trunc(SYSDATE))
+                            						and dtfecha is null");
+
+										$stid = oci_parse($conexao, $sql);
+										$execute = oci_execute($stid);
+
+										while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+											// Use the uppercase column names for the associative array indices
+											echo $row['TOT_CARREG_ABERTO'];
+										}
+										?>
+									</h1>
+									<div class="mb-0">
+										<span class="text-muted">mês anterior</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="card">
+								<div class="card-body">
+									<div class="row">
+										<div class="col mt-0">
+											<h5 class="card-title">Caminhões em Rota</h5>
+										</div>
+										<div class="col-auto">
+											<div class="stat text-primary">
+												<i class="align-middle" data-feather="truck"></i>
+											</div>
+										</div>
+									</div>
+									<h1 class="mt-1 mb-3">
+										<?php
+										$sql = ("SELECT * FROM
 														(SELECT COUNT (codveiculo)QT_VEICULO_ATIVO
 														FROM pcveicul
 														WHERE situacao     <> 'I'
@@ -272,22 +284,21 @@ include 'connect/conexao.php';
 														AND dtsaida  >= '01-out-2022'
 														)veiculo_viagem");
 
-													$stid = oci_parse($conexao, $sql);
-													$execute = oci_execute($stid);
+										$stid = oci_parse($conexao, $sql);
+										$execute = oci_execute($stid);
 
-													while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
-														// Use the uppercase column names for the associative array indices
-														echo $row['EMROTA'];
-													}
-													?>
-												</h1>
-											</div>
-										</div>
+										while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+											// Use the uppercase column names for the associative array indices
+											echo $row['EMROTA'];
+										}
+										?>
+									</h1>
+									<div class="mb-0">
+										<span class="text-muted">mês atual/ano anterior</span>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 			</main>
 
