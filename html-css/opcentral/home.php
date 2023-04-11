@@ -146,9 +146,7 @@ include 'connect/conexao.php';
 										}
 										?>
 									</h1>
-									<div class="mb-0">
-										<span class="text-muted">mês anterior</span>
-									</div>
+
 								</div>
 							</div>
 						</div>
@@ -181,9 +179,6 @@ include 'connect/conexao.php';
 										}
 										?>
 									</h1>
-									<div class="mb-0">
-										<span class="text-muted">mês atual/ano anterior</span>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -215,9 +210,6 @@ include 'connect/conexao.php';
 										}
 										?>
 									</h1>
-									<div class="mb-0">
-										<span class="text-muted">mês atual</span>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -249,9 +241,6 @@ include 'connect/conexao.php';
 										}
 										?>
 									</h1>
-									<div class="mb-0">
-										<span class="text-muted">mês anterior</span>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -293,9 +282,6 @@ include 'connect/conexao.php';
 										}
 										?>
 									</h1>
-									<div class="mb-0">
-										<span class="text-muted">mês atual/ano anterior</span>
-									</div>
 								</div>
 							</div>
 						</div>
