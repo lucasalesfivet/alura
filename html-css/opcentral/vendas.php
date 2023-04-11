@@ -312,9 +312,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$' . $row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                         ?>
                                     </h1>
@@ -340,9 +342,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -368,9 +372,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -400,9 +406,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -428,9 +436,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -456,9 +466,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -488,9 +500,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -516,9 +530,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -544,9 +560,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
@@ -576,9 +594,11 @@ include 'connect/conexao.php';
                                         $stid = oci_parse($conexao, $sql);
                                         $execute = oci_execute($stid);
 
-                                        while (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
+                                        if (($row = oci_fetch_array($stid, OCI_BOTH)) != false) {
                                             // Use the uppercase column names for the associative array indices
                                             echo 'R$'.$row['VALOR'];
+                                        } else {
+                                            echo 'R$ 0,00';
                                         }
                                     ?>
                                     </h1>
