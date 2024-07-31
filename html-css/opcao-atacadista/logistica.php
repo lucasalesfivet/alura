@@ -10,7 +10,8 @@ if (!isset($_SESSION['usu']))
 
 include 'connect/conexao.php';
 
-?>
+?> 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

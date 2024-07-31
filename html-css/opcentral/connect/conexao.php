@@ -1,6 +1,6 @@
 <?php 
-$ora_user = "CONSULTA";
-$ora_senha = "CONSULTA";
+$ora_user = "SYSTEM";
+$ora_senha = "MANOPCAOSYS02";
 
 $ora_bd = 
 
@@ -15,10 +15,10 @@ $ora_bd =
 
 $conexao = oci_connect($ora_user, $ora_senha, $ora_bd);
 
-/*
+
 if ($conexao = oci_connect($ora_user, $ora_senha, $ora_bd)){
     echo "Conectado!";
 } else {
     echo "Não conectado!";
-}*/
+}
 ?>
