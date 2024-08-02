@@ -198,7 +198,7 @@ include 'connect/conexao.php';
 									</div>
 									<h1 class="mt-1 mb-3">
 										<?php
-										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-abril-2023' and (trunc(SYSDATE))
+										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-jul-2024' and (trunc(SYSDATE))
                             			and dtfecha is null");
 
 										$stid = oci_parse($conexao, $sql);
@@ -229,7 +229,7 @@ include 'connect/conexao.php';
 									<h1 class="mt-1 mb-3">
 										<?php
 										$sql = ("SELECT count(*) as TOT_CARREG_DEZ FROM pccarreg
-										WHERE dtfat between '01-abril-2023' and (trunc(SYSDATE)-10)
+										WHERE dtfat between '01-jul-2024' and (trunc(SYSDATE)-10)
 										and totpeso <> 0
 										and dtfecha is null");
 
@@ -351,12 +351,12 @@ include 'connect/conexao.php';
 										FROM
 											(SELECT SUM (valor)VLINADIPLENCIA
 											FROM pcprest
-											WHERE dtvenc BETWEEN '01-mar-2022' AND '30-mar-2022'
+											WHERE dtvenc BETWEEN '01-jul-2024' AND '31-jul-2024'
 											AND dtpag IS NULL
 											) INAD,
 											(SELECT SUM (valor)VLPREVISOT
 											FROM pcprest
-											WHERE dtvenc BETWEEN '01-mar-2022' AND '30-mar-2022'
+											WHERE dtvenc BETWEEN '01-jul-2024' AND '31-jul-2024'
 											AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
 
 										$stid = oci_parse($conexao, $sql);
@@ -369,7 +369,7 @@ include 'connect/conexao.php';
 										?>
 									</h1>
 									<div class="mb-0">
-										<span class="text-muted">Março/2023</span>
+										<span class="text-muted">Julho/2024</span>
 									</div>
 								</div>
 							</div>

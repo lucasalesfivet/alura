@@ -229,7 +229,7 @@ include 'connect/conexao.php';
 									</div>
 									<h1 class="mt-1 mb-3">
 										<?php
-										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-abril-2023' and (trunc(SYSDATE))
+										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-agosto-2024' and (trunc(SYSDATE))
                             						and dtfecha is null");
 
 										$stid = oci_parse($conexao, $sql);
@@ -270,7 +270,7 @@ include 'connect/conexao.php';
 														WHERE dtfecha      IS NULL
 														AND destino NOT    IN ( 'VENDA BALCAO', 'CANCELADO')
 														AND codveiculo NOT IN (0,1,267)
-														AND dtsaida  >= '01-out-2022'
+														AND dtsaida  >= '01-jun-2024'
 														)veiculo_viagem");
 
 										$stid = oci_parse($conexao, $sql);
