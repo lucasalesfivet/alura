@@ -97,7 +97,7 @@ include 'connect/conexao.php';
 								<div class="card-body">
 									<div class="row">
 										<div class="col mt-0">
-											<h5 class="card-title">Total de Pedidos</h5>
+											<h5 class="card-title">Total de Pedidos de Hoje</h5>
 										</div>
 										<div class="col-auto">
 											<div class="stat text-primary">
@@ -126,7 +126,7 @@ include 'connect/conexao.php';
 								<div class="card-body">
 									<div class="row">
 										<div class="col mt-0">
-											<h5 class="card-title">Pedidos em Análise</h5>
+											<h5 class="card-title">Pedidos de Hoje em Análise</h5>
 										</div>
 
 										<div class="col-auto">
@@ -158,7 +158,7 @@ include 'connect/conexao.php';
 								<div class="card-body">
 									<div class="row">
 										<div class="col mt-0">
-											<h5 class="card-title">Pedidos Bloqueados</h5>
+											<h5 class="card-title">Pedidos Bloqueados últimos 30 dias</h5>
 										</div>
 										<div class="col-auto">
 											<div class="stat text-primary">
@@ -198,8 +198,8 @@ include 'connect/conexao.php';
 									</div>
 									<h1 class="mt-1 mb-3">
 										<?php
-										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-jul-2024' and (trunc(SYSDATE))
-                            			and dtfecha is null");
+										$sql = ("SELECT count(*) as TOT_CARREG_ABERTO FROM pccarreg WHERE dtfat between '01-jan-2024' and (trunc(SYSDATE))
+                            			and dtfecha is null and vltotal <> 0");
 
 										$stid = oci_parse($conexao, $sql);
 										$execute = oci_execute($stid);
@@ -230,7 +230,7 @@ include 'connect/conexao.php';
 										<?php
 										$sql = ("SELECT count(*) as TOT_CARREG_DEZ FROM pccarreg
 										WHERE dtfat between '01-jul-2024' and (trunc(SYSDATE)-10)
-										and totpeso <> 0
+										and vltotal <> 0
 										and dtfecha is null");
 
 										$stid = oci_parse($conexao, $sql);
@@ -266,12 +266,13 @@ include 'connect/conexao.php';
 										FROM
 										(SELECT SUM (valor)VLINADIPLENCIA
 										FROM pcprest
-										WHERE dtvenc BETWEEN (trunc(SYSDATE)-366) AND (trunc(SYSDATE)-31)
+										WHERE dtvenc BETWEEN (trunc(SYSDATE)-365) AND (trunc(SYSDATE)-30)
 										AND dtpag IS NULL
+										AND codfilial = 1
 										) INAD,
 										(SELECT SUM (valor)VLPREVISOT
 										FROM pcprest
-										WHERE dtvenc BETWEEN (trunc(SYSDATE)-366) AND (trunc(SYSDATE)-31)
+										WHERE dtvenc BETWEEN (trunc(SYSDATE)-365) AND (trunc(SYSDATE)-30)
 										AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
 
 										$stid = oci_parse($conexao, $sql);
@@ -309,12 +310,13 @@ include 'connect/conexao.php';
 										FROM
 										(SELECT SUM (valor)VLINADIPLENCIA
 										FROM pcprest
-										WHERE dtvenc BETWEEN '01-out-2010' AND (trunc(SYSDATE)-60)
+										WHERE dtvenc BETWEEN '01-fev-2013' AND (trunc(SYSDATE)-60)
 										AND dtpag IS NULL
+										AND codfilial = 1
 										) INAD,
 										(SELECT SUM (valor)VLPREVISOT
 										FROM pcprest
-										WHERE dtvenc BETWEEN '01-out-2010' AND (trunc(SYSDATE)-60)
+										WHERE dtvenc BETWEEN '01-fev-2013' AND (trunc(SYSDATE)-60)
 										AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
 
 										$stid = oci_parse($conexao, $sql);
@@ -351,12 +353,13 @@ include 'connect/conexao.php';
 										FROM
 											(SELECT SUM (valor)VLINADIPLENCIA
 											FROM pcprest
-											WHERE dtvenc BETWEEN '01-jul-2024' AND '31-jul-2024'
+											WHERE dtvenc BETWEEN '01-julho-2024' AND '31-julho-2024'
 											AND dtpag IS NULL
+											AND codfilial = 1
 											) INAD,
 											(SELECT SUM (valor)VLPREVISOT
 											FROM pcprest
-											WHERE dtvenc BETWEEN '01-jul-2024' AND '31-jul-2024'
+											WHERE dtvenc BETWEEN '01-julho-2024' AND '31-julho-2024'
 											AND codcob NOT IN ('DEVP', 'DEVT', 'BNF', 'BNFT', 'BNFR', 'BNTR', 'BNRP', 'CRED', 'DESD'))PREV");
 
 										$stid = oci_parse($conexao, $sql);
